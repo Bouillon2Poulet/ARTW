@@ -10,8 +10,8 @@ Le but est d’accorder la même visibilité à des œuvres indépendantes que c
 
 Le site a donc deux fonctions principales :
 
-    ajouter ou modifier des oeuvres
-    les visualiser avec des filtres de recherches spécifiques
+- ajouter ou modifier des oeuvres
+- les visualiser avec des filtres de recherches spécifiques
 
 Ainsi, notre projet se voit être un espace de recrutement et d’entraide au delà de son seul aspect de partage.
 
