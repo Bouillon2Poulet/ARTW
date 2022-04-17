@@ -1,5 +1,7 @@
 # ARTW
 
+## Pitch 
+
 pARTage.artw
 
 pARTage.artw se veut être une plateforme collaborative de partage de projets artistiques étudiants. Ici, nous souhaitons répondre à un réel besoin d’exposition de certains projets qui méritent plus de rayonnement en les archivant
@@ -15,10 +17,7 @@ Ainsi, notre projet se voit être un espace de recrutement et d’entraide au de
 
 L’équipe ARTW (pour Axel, Romain, Tristan et Wendy) tient son nom non seulement de nos initiales, mais aussi des mots “Artwork”, “Art & Web”, “Art World” et “Art Wiki”.
 
-Voilà le lien du git :
 
-https://github.com/Bouillon2Poulet/ARTW
+## BdD
 
-Cordialement,
 
-Romain, chef de projet désigné par un vote démocratique et co-créateur de la plateforme pARTage.artw
