@@ -1,4 +1,6 @@
-# ARTW
+# Projet Backend  ![logo artw git petit](https://user-images.githubusercontent.com/103901906/163815289-400c2ad6-9ccb-4579-b116-8f99b5db498c.png) 
+
+
 
 ## Pitch 
 
@@ -20,6 +22,5 @@ L’équipe ARTW (pour Axel, Romain, Tristan et Wendy) tient son nom non seuleme
 
 ## BdD
 
-![image](https://user-images.githubusercontent.com/103901906/163730621-94d6decb-9c10-4beb-b9f8-b463a32922e7.png)
-
+![image](https://user-images.githubusercontent.com/103901906/163815432-4fe70c8c-c990-4839-97ff-ed4dc565b5dd.png)
 
