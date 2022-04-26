@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: blueviolet;
+}
+
+h2 {
+    color: blueviolet;
+}
+
+a {
+    color: rgb(88, 59, 255);
+    text-decoration: none;
+    transition-duration: 0.5s;
+
+}
+
+a:hover{
+    color: rgb(206, 197, 255);  
+    transition-duration: 0.5s;
+}
+
+.ajout {
+    color:white;
+    background-color: rgb(93, 211, 148);
+    text-decoration: none;
+    padding: 10px 20px;
+    transition-duration: 0.5s;
+
+}
+
+.ajout:hover {
+    color:white;
+    background-color: rgb(93, 211, 122);
+    text-shadow: white 1px 0 10px;
+    transition-duration: 1s;
+    box-shadow: 6px 6px 2px 1px rgb(149, 245, 173);
+
+}
+
+.sup {
+    color:lightcoral;
+}
