@@ -8,11 +8,12 @@
     <head>
     <title>Suppression...</title>
 
-    <!-- Redirection vers la liste des oeuvres pendant 0.5 sec -->
-    <meta http-equiv="refresh" content="0.5; URL=/app.php/oeuvres">
-        
-        <?php
+    <!-- Redirection delete->app pendant 1sec -->
+    <meta http-equiv="refresh" content="0.5; URL=/~wendy.gervais/app.php/oeuvres">
+    <!-- <meta http-equiv="refresh" content="0.5; URL=/app.php/oeuvres"> -->
 
+
+        <?php
         // Récupération id_oeuvre à supprimer dans l'URL
         $uri = $_SERVER['REQUEST_URI'];
         $url = explode("/", $uri);
@@ -28,10 +29,8 @@
 
 
         // Bouton retour (si pas de redirection)
-        echo '<a href="/app.php/oeuvres">Retour</a>';
-
-
-
+        // echo '<a href="/app.php/oeuvres">Retour</a>';
+        echo '<a href="/~wendy.gervais/app.php/oeuvres">Retour</a>';
 
 
         ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 26 avr. 2022 à 20:48
+-- Généré le : jeu. 28 avr. 2022 à 22:52
 -- Version du serveur :  8.0.28-0ubuntu0.20.04.3
 -- Version de PHP : 7.4.3
 
@@ -74,7 +74,17 @@ INSERT INTO `Formats` (`id_format`, `nom_format`, `id_domaine`) VALUES
 (8, 'Podcast', 2),
 (9, 'Livre audio', 2),
 (10, 'Série audio', 2),
-(11, 'Sound Design', 2);
+(11, 'Sound Design', 2),
+(12, 'Photographie', 3),
+(13, 'Montage', 3),
+(14, 'Peinture', 3),
+(15, 'Graphisme', 3),
+(16, 'Collage', 3),
+(17, 'Dessin', 3),
+(18, 'Illustration', 3),
+(19, 'BD, manga', 3),
+(20, 'Street Art, Graffiti', 3),
+(21, 'Concept Art', 3);
 
 -- --------------------------------------------------------
 
@@ -235,7 +245,7 @@ ALTER TABLE `Domaines`
 -- AUTO_INCREMENT pour la table `Formats`
 --
 ALTER TABLE `Formats`
-  MODIFY `id_format` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_format` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `Oeuvres`

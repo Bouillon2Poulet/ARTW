@@ -1,17 +1,25 @@
 <?php 
 
-    $serveur = 'localhost';
-    $bdd = 'artw';
+    $serveur = 'sqletud.u-pem.fr';
+    $bdd = 'wendy.gervais_db';
 
-    $user = "wendy";
+    $user = "wendy.gervais";
     $pass = "1367";
+
+    // $serveur = 'localhost';
+    // $bdd = 'artw';
+
+    // $user = "wendy";
+    // $pass = "1367";
 
     // Connexion à la BDD
     $MaBase = new PDO('mysql:host='.$serveur.';dbname='.$bdd, $user, $pass);
 
+    $MaBase->exec("SET NAMES UTF8");
 
-    // Selection de toutes les oeuvres + domaine + format
-    $requete = 'SELECT id_oeuvre, titre, Domaines.nom_domaine, Formats.nom_format FROM Oeuvres JOIN Formats ON Oeuvres.id_format=Formats.id_format JOIN Domaines ON Domaines.id_domaine=Formats.id_domaine';
+
+    // Selection de toutes les oeuvres+domaine+format
+    $requete = 'SELECT id_oeuvre, titre, description, Domaines.nom_domaine, Formats.nom_format FROM Oeuvres JOIN Formats ON Oeuvres.id_format=Formats.id_format JOIN Domaines ON Domaines.id_domaine=Formats.id_domaine';
     
     $PDOoeuvres = $MaBase->query($requete);
     $oeuvres = [];
@@ -34,7 +42,7 @@
 
     $PDOdom->closeCursor();
 
-    // Selection de tous les formats
+    // Selection de tous les domaines
     $requetef = 'SELECT id_format, nom_format FROM Formats';
 
     $PDOf = $MaBase->query($requetef);
@@ -47,7 +55,6 @@
     $PDOf->closeCursor();
 
     
-
 
     // Permet de récupérer les oeuvres pour les lister dans la page listeOeuvres
     function getOeuvres(){

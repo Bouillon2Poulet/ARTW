@@ -1,11 +1,11 @@
 <?php 
     include "controller.php";
-    require "views/header.php";
 ?>
 
 
 <!-- Bouton pour add une oeuvre -->
-<a href="/add.php" class="ajout">Ajouter une oeuvre</a>
+<a href="/~wendy.gervais/add.php" class="ajout">Ajouter une oeuvre</a>
+<!-- <a href="/add.php" class="ajout">Ajouter une oeuvre</a> -->
 
 <br><br><br>
 
@@ -60,4 +60,6 @@
     echo '</table>';
 
     ?>
+
+
 

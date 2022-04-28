@@ -1,6 +1,6 @@
 <?php
 
-// ROUTEUR : Redirige vers la bonne page selon ce qui est entré dans l'URL (via GET + explode de l'uri)
+// ROUTEUR : Redirige vers la bonne page selon ce qui est entré dans l'URL (via GET)
 
 
 $method = $_SERVER['REQUEST_METHOD'] ;
@@ -14,6 +14,9 @@ global $dest;
 // Explode url
 $url = explode("/", $uri);
 $dest = $url[count($url)-1];
+
+
+include "views/header.php";         
 
 // Accueil du site
 if ($dest=="app.php") {
@@ -30,8 +33,8 @@ if ($dest=="ajout") {
     include "views/ajout.php";
 }
 
-// Visualisation d'une oeuvre
-else if (count($url)>3) {
+// Visualisation d'un film
+if (count($url)>3) {
     include "views/oeuvre.php";
 }
 
