@@ -8,6 +8,7 @@
 
 
     function listeFormats(){
+        echo '<option value="">--Choisir un format--</option>' ;
         echo '<optgroup label="Vidéo">';
         for ($k=1; $k<=6; $k++) {
             echo "<option value=$k>";
