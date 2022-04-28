@@ -1,26 +1,43 @@
-#  ![logo artw git petit](https://user-images.githubusercontent.com/103901906/163815289-400c2ad6-9ccb-4579-b116-8f99b5db498c.png)   Projet Backend
+
+# premier test Wendo
+
+## structure
+
+app.php = coeur de tout (on accède par http://.../app.php)
+
+**Modèle** : 
+- model.php 
+- BDD SQL artw
+
+**Vue** : dossier views 
+- header+footer rappelés à chaque vue. Header contient titre site + navbar
+- accueil : bienvenue + lien vers liste oeuvres
+- listeOeuvres : liste des oeuvres + bouton ajouter (fonctionnel) + boutons modifier (pas encore fait) et supprimer (fonctionnel)
+- oeuvre : page de visualisation d'une oeuvre. Accès en oeuvre/1, oeuvre/2 ... avec Get
+- le styles.css pour le... style... ( ͡° ͜ʖ ͡°)
+
+**Contrôleur** : controller.php pour rediriger l'utilisateur à la bonne page en explodant uri
+
+
+page **add** : formulaire pour ajouter une oeuvre  
+page **delete** : permet d'effacer l'oeuvre correspondant à la bonne ligne du tableau grâce à un get d'url + re'dirige vers page delete avec redirection auto sur listeoeuvres, supprime oeuvre de la BDD + reset l'auto-increment des id_oeuvres (comme ça quand on en re-rajoutera une, y aura plus de pb d'incrémentation des id)
 
 
 
-## Pitch 
-
-pARTage.artw
-
-pARTage.artw se veut être une plateforme collaborative de partage de projets artistiques étudiants. Ici, nous souhaitons répondre à un réel besoin d’exposition de certains projets qui méritent plus de rayonnement en les archivant
-
-Le but est d’accorder la même visibilité à des œuvres indépendantes que celles dont profitent les œuvres mainstream. Nous souhaitons mettre à disposition des utilisateurs une base de données comprenant un ensemble de projets appartenant à diverses catégories “globales” comme Audiovisuel, Web, Musique, ... Ces catégories sont en suite divisée en plusieurs sous-catégories. On retrouvera par exemple “Photo, films, séries, saga audio” dans Audiovisuel. Les utilisateurs sont invités à remplir divers champs qui dépendront de la catégorie globale de l’œuvre qu’ils veulent ajouter à la base de données du site, ainsi qu’un lien vers son œuvre.
-
-Le site a donc deux fonctions principales :
-
-- ajouter ou modifier des oeuvres
-- les visualiser avec des filtres de recherches spécifiques
-
-Ainsi, notre projet se voit être un espace de recrutement et d’entraide au delà de son seul aspect de partage.
-
-L’équipe ARTW (pour Axel, Romain, Tristan et Wendy) tient son nom non seulement de nos initiales, mais aussi des mots “Artwork”, “Art & Web”, “Art World” et “Art Wiki”.
+## pour lancer dans serveur php
+clone repo
 
 
-## BdD
+lancement serveur local **dans le dossier Site** :
+` php -S localhost:8080`
 
-![Merise2](https://user-images.githubusercontent.com/103901906/165320954-ca3e9a0e-295e-414b-a777-05059b527ece.png)
+phpmyadmin
+`http://127.0.0.1/phpmyadmin/index.php`
 
+télécharger Bdd/artw.sql et importer dans phpmyadmin 
+
+remplacer user & pass dans model.php : 
+
+![image](https://user-images.githubusercontent.com/103901906/165371989-03a54417-3e44-4663-9393-e902ba638e02.png)
+
+accès `http://localhost:8080/app.php`
