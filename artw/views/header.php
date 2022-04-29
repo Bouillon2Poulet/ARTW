@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel=stylesheet href="https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/styles.css">
-    
+    <link rel="icon" type="image/x-icon" href="https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/images/favicon.svg">
     <title>partage.artw</title>
 </head>
 
