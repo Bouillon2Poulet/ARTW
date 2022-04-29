@@ -24,3 +24,4 @@ L’équipe ARTW (pour Axel, Romain, Tristan et Wendy) tient son nom non seuleme
 
 ![Merise2](https://user-images.githubusercontent.com/103901906/165320954-ca3e9a0e-295e-414b-a777-05059b527ece.png)
 
+[Dossier Pitch Merise.pdf](https://github.com/Bouillon2Poulet/ARTW/files/8593040/Dossier.Pitch.Merise.pdf)
