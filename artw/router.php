@@ -19,7 +19,7 @@ $dest = $url[count($url)-1];
 include "views/header.php";         
 
 // Accueil du site
-if ($dest=="app.php") {
+if ($dest=="index.php") {
     include "views/accueil.php";
 }
 

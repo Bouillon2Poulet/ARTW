@@ -3,4 +3,4 @@
 
 <br>
 
-<a href="app.php/oeuvres">Accéder aux oeuvres -> </a>
+<a href="index.php/oeuvres">Accéder aux oeuvres -> </a>

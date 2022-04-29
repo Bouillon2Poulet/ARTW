@@ -18,7 +18,7 @@
     
 <h1>
     <!-- Logo -->
-    <a href="/~wendy.gervais/artw/app.php"><img src="https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/images/logo.png" alt="Accueil" class="logo"></a> 
+    <a href="/~wendy.gervais/artw/index.php"><img src="https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/images/logo.png" alt="Accueil" class="logo"></a> 
     
     <!-- Titre -->
     PARTAGE.ARTW 
@@ -26,7 +26,7 @@
 </h1>
 
     <!-- Barre navigation -->
-    <nav><a href="/~wendy.gervais/artw/app.php">Accueil </a> / Lien nav 1 / <a target='_blank' href="https://github.com/Bouillon2Poulet/ARTW"> Lien du Git </a> / A propos</nav>
+    <nav><a href="/~wendy.gervais/artw/index.php">Accueil </a> / Lien nav 1 / <a target='_blank' href="https://github.com/Bouillon2Poulet/ARTW"> Lien du Git </a> / A propos</nav>
 
 <br><br>
 
