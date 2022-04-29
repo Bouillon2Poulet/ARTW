@@ -2,8 +2,7 @@
     require "model.php";
 
     function delete($k) {
-        echo '<a href="/~wendy.gervais/delete.php/'.$k.'"'.'class="sup">Supprimer</a>';
-        // echo '<a href="/delete.php/'.$k.'"'.'class="sup">Supprimer</a>';
+        echo '<a href="/~wendy.gervais/artw/delete.php/'.$k.'"'.'class="sup">Supprimer</a>';
     }
 
 

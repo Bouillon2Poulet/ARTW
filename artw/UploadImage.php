@@ -40,7 +40,7 @@
 
                 // On upload l'image sur le serveur
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $repertoire.$nom_image)) { 
-                    $url = 'https://perso-etudiant.u-pem.fr/~wendy.gervais/'.$repertoire.''.$nom_image.''; 
+                    $url = 'https://perso-etudiant.u-pem.fr/~wendy.gervais/artw'.$repertoire.''.$nom_image.''; 
                     //echo 'Votre image a été uploadée sur le serveur avec succès !';
                     
                 } 

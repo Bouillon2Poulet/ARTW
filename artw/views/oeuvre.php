@@ -31,7 +31,7 @@
             echo "<br>";
 
 
-            echo " <img class='imgOeuv' alt='Image oeuvre' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/uploads/". $o['image']."'>";
+            echo " <img class='imgOeuv' alt='Image oeuvre' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/". $o['image']."'>";
 
 
 
@@ -43,6 +43,5 @@
 <br>
 <br>
 
-<a href="/~wendy.gervais/app.php/oeuvres"> <- Retour à la liste des oeuvres</a>
-<!-- <a href="/app.php/oeuvres"> <- Retour à la liste des oeuvres</a> -->
+<a href="/~wendy.gervais/artw/app.php/oeuvres"> <- Retour à la liste des oeuvres</a>
 

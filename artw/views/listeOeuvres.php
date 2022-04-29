@@ -4,22 +4,21 @@
 
 
 <!-- Bouton pour add une oeuvre -->
-<a href="/~wendy.gervais/add.php" class="ajout">Ajouter une oeuvre</a>
-<!-- <a href="/add.php" class="ajout">Ajouter une oeuvre</a> -->
+
+<a href="/~wendy.gervais/artw/add.php" class="ajout">Ajouter une oeuvre</a>
 
 <br><br><br>
 
 <?php
 
     // Début du tableau HTML des oeuvres
-
+    
     echo '<table>
     <tr>
     <th>Titre</th>
     <th>Domaine</th>
     <th>Format</th>
     </tr>';
-
 
     foreach(getOeuvres() as $o) {
         echo '<tr>';
@@ -54,10 +53,10 @@
         echo '</tr>';
     }
  
- 
-    // Fin tableau HTML
-    
     echo '</table>';
+    
+    // Fin tableau HTML
+
 
     ?>
 

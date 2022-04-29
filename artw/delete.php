@@ -9,8 +9,7 @@
     <title>Suppression...</title>
 
     <!-- Redirection delete->app pendant 1sec -->
-    <meta http-equiv="refresh" content="0.5; URL=/~wendy.gervais/app.php/oeuvres">
-    <!-- <meta http-equiv="refresh" content="0.5; URL=/app.php/oeuvres"> -->
+    <meta http-equiv="refresh" content="0.5; URL=/~wendy.gervais/artw/app.php/oeuvres">
 
 
         <?php
@@ -29,8 +28,7 @@
 
 
         // Bouton retour (si pas de redirection)
-        // echo '<a href="/app.php/oeuvres">Retour</a>';
-        echo '<a href="/~wendy.gervais/app.php/oeuvres">Retour</a>';
+        echo '<a href="/~wendy.gervais/artw/app.php/oeuvres">Retour</a>';
 
 
         ?>

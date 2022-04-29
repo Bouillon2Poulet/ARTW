@@ -6,12 +6,6 @@
     $user = "wendy.gervais";
     $pass = "1367";
 
-    // $serveur = 'localhost';
-    // $bdd = 'artw';
-
-    // $user = "wendy";
-    // $pass = "1367";
-
     // Connexion à la BDD
     $MaBase = new PDO('mysql:host='.$serveur.';dbname='.$bdd, $user, $pass);
 

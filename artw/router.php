@@ -29,7 +29,7 @@ if ($dest=="oeuvres") {
 }
 
 // Visualisation d'un film
-if (count($url)>3) {
+if (count($url)>4) {
     include "views/oeuvre.php";
 }
 

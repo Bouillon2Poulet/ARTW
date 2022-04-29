@@ -6,7 +6,7 @@
 
 
 <!-- Formulaire d'ajout -->
-<form action="/~wendy.gervais/add.php" method="post" enctype="multipart/form-data">
+<form action="/~wendy.gervais/artw/add.php" method="post" enctype="multipart/form-data">
 <!-- <form action="/add.php" method="post"> -->
 
 
@@ -65,7 +65,6 @@
     <?php 
       $method=strtolower($_SERVER['REQUEST_METHOD']);
 
-    // Encodage de la réponse en Json
     if ($method == 'post') {
 
       $titre = $_POST['titre'];
@@ -101,7 +100,6 @@
     ?>
 
 <br>
-<a href="/~wendy.gervais/app.php/oeuvres"> <- Retour à la liste des oeuvres</a>
-<!-- <a href="/app.php/oeuvres"> <- Retour à la liste des oeuvres</a> -->
+<a href="/~wendy.gervais/artw/app.php/oeuvres"> <- Retour à la liste des oeuvres</a>
 
       
