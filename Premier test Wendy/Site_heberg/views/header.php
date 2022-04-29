@@ -15,9 +15,9 @@
 </head>
 
 <body>
-
+<h1><a href="/~wendy.gervais/app.php"><img src="https://perso-etudiant.u-pem.fr/~wendy.gervais/images/logo.png" alt="Accueil" class="logo"></a> 
     <!-- Titre -->
-    <h1>PARTAGE.ARTW</h1>
+    PARTAGE.ARTW</h1>
     
     <!-- Barre navigation -->
     <nav><a href="/~wendy.gervais/app.php">Accueil </a> / Lien nav 1 / Lien nav 2 / A propos</nav>

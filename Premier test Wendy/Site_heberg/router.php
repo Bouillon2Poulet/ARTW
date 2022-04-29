@@ -28,11 +28,6 @@ if ($dest=="oeuvres") {
     include "views/listeOeuvres.php";
 }
 
-// Page ajout
-if ($dest=="ajout") {
-    include "views/ajout.php";
-}
-
 // Visualisation d'un film
 if (count($url)>3) {
     include "views/oeuvre.php";
