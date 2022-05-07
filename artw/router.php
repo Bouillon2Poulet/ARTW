@@ -28,9 +28,24 @@ if ($dest=="oeuvres") {
     include "views/listeOeuvres.php";
 }
 
-// Visualisation d'un film
-if (count($url)>4) {
+// Ajouteur une oeuvre
+if ($dest=="addOeuvre") {
+    include "views/addOeuvre.php";
+}
+
+// Confirmer l'ajout d'une oeuvre
+if ($dest=="addOeuvreConfirm") {
+    include "views/addOeuvreConfirm.php";
+}
+
+// Visualisation d'une oeuvre
+if ( $url[count($url)-2] == 'oeuvre') {
     include "views/oeuvre.php";
+}
+
+// Suppression d'une oeuvre
+if ( $url[count($url)-2] == 'delete') {
+    include "views/deleteOeuvre.php";
 }
 
 include "views/footer.php";

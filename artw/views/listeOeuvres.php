@@ -5,7 +5,7 @@
 
 <!-- Bouton pour add une oeuvre -->
 
-<a href="/~wendy.gervais/artw/add.php" class="ajout">Ajouter une oeuvre</a>
+<a href="../index.php/addOeuvre" class="ajout">Ajouter une oeuvre</a>
 
 <br><br><br>
 
@@ -46,8 +46,7 @@
         echo '</td>';
 
         echo '<td>';
-        
-        delete($o['id_oeuvre']);
+        echo '<a href="delete/'.$o['id_oeuvre'].'"'.'class="sup">Supprimer</a>';
 
         echo '</td>';       
         echo '</tr>';

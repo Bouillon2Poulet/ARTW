@@ -43,5 +43,5 @@
 <br>
 <br>
 
-<a href="/~wendy.gervais/artw/index.php/oeuvres"> <- Retour à la liste des oeuvres</a>
+<a href="../../index.php/oeuvres"> <- Retour à la liste des oeuvres</a>
 

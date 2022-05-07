@@ -1,11 +1,6 @@
 <?php
     require "model.php";
 
-    function delete($k) {
-        echo '<a href="/~wendy.gervais/artw/delete.php/'.$k.'"'.'class="sup">Supprimer</a>';
-    }
-
-
     function listeFormats(){
         echo '<option value="">--Choisir un format--</option>' ;
         echo '<optgroup label="Vidéo">';
@@ -34,7 +29,41 @@
         echo '</optgroup>';
     }
 
+    function addOeuvre($MaBase){
+
+        $method=strtolower($_SERVER['REQUEST_METHOD']);
+
+        if ($method == 'post') {
+
+            $titre = $_POST['titre'];
+            $format = $_POST['id_format'];
+            $desc = $_POST['desc'];
+            $lien = $_POST['lien'];
+
+            $gtitre = "'" . $titre . "'";
+            $gdesc = "'" . $desc . "'";
+            $gformat = "'" . $format . "'";
+            $glien = "'" . $lien . "'";
+            $gimg = "'" . UploadImage(getlastid() + 1) . "'";
+
+            $req = "INSERT INTO Oeuvres(id_oeuvre, titre, description, image, url, id_format) VALUES (NULL," . $gtitre . "," . $gdesc . "," . $gimg . "," . $glien . "," . $gformat . ")";
+            $MaBase->exec($req);
+
+        } else {
+            http_response_code(404);
+        }
+    }
+
+    function deleteOeuvre($MaBase){
+        
+        // Récupération id_oeuvre à supprimer dans l'URL
+        $uri = $_SERVER['REQUEST_URI'];
+        $url = explode("/", $uri);
+        $dest = $url[count($url)-1];
+
+        // Suppression de l'oeuvre
+        $reqdel = 'DELETE FROM Oeuvres WHERE id_oeuvre='."'".$dest."'";
+        $MaBase->exec($reqdel);
 
 
-
-?>
+    }

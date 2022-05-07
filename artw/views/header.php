@@ -1,3 +1,20 @@
+<?php
+    function setCurrentFolder(){
+        $method = $_SERVER['REQUEST_METHOD'] ;
+        $uri = $_SERVER['REQUEST_URI'];
+
+        $url = explode("/", $uri);
+        $current = $url[count($url)-1];
+
+        if ($current=="index.php") {
+            return '';
+        } elseif ($url[count($url)-2] == 'oeuvre' || $url[count($url)-2] == 'delete'){
+            return '../../';
+        } else {
+            return '../';
+        }
+    }
+?>
 
 <!-- Haut de page -->
 
@@ -9,8 +26,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel=stylesheet href="https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/styles.css">
-    <link rel="icon" type="image/x-icon" href="https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/images/favicon.svg">
+    <?php
+        echo '<link rel=stylesheet href="'.setCurrentFolder().'styles.css">';
+        echo '<link rel="icon" type="image/x-icon" href="'.setCurrentFolder().'images/favicon.svg">';
+    ?>
+
     <title>partage.artw</title>
 </head>
 
@@ -18,7 +38,9 @@
     
 <h1>
     <!-- Logo -->
-    <a href="/~wendy.gervais/artw/index.php"><img src="https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/images/logo.png" alt="Accueil" class="logo"></a> 
+    <?php
+        echo '<a href="'.setCurrentFolder().'index.php"><img src="'.setCurrentFolder().'images/logo.png" alt="Accueil" class="logo"></a>';
+    ?>
     
     <!-- Titre -->
     PARTAGE.ARTW 
@@ -26,7 +48,10 @@
 </h1>
 
     <!-- Barre navigation -->
-    <nav><a href="/~wendy.gervais/artw/index.php">Accueil </a> / Lien nav 1 / <a target='_blank' href="https://github.com/Bouillon2Poulet/ARTW"> Lien du Git </a> / A propos</nav>
+
+    <?php
+        echo '<nav><a href="'.setCurrentFolder().'index.php">Accueil </a> / Lien nav 1 / <a target="_blank" href="https://github.com/Bouillon2Poulet/ARTW"> Lien du Git </a> / A propos</nav>'
+    ?>
 
 <br><br>
 
