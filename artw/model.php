@@ -12,6 +12,9 @@
     $MaBase->exec("SET NAMES UTF8");
 
 
+
+
+
     // Selection de toutes les oeuvres+domaine+format
     $requete = 'SELECT id_oeuvre, titre, description, image, url, Domaines.nom_domaine, Formats.nom_format FROM Oeuvres JOIN Formats ON Oeuvres.id_format=Formats.id_format JOIN Domaines ON Domaines.id_domaine=Formats.id_domaine';
     $PDOoeuvres = $MaBase->query($requete);
@@ -20,6 +23,8 @@
         array_push($oeuvres, $ligne);
     }
     $PDOoeuvres->closeCursor();
+
+
 
     // Selection de tous les domaines
     $requetedom = 'SELECT id_domaine, nom_domaine FROM Domaines';
@@ -30,7 +35,10 @@
     }
     $PDOdom->closeCursor();
 
-    // Selection de tous les domaines
+
+
+
+    // Selection de tous les formats
     $requetef = 'SELECT id_format, nom_format FROM Formats';
     $PDOf = $MaBase->query($requetef);
     $f = [];
@@ -40,6 +48,9 @@
     $PDOf->closeCursor();
 
 
+
+
+    // Récupération de l'id de la dernière oeuvre
     $requeteid = 'SELECT MAX(id_oeuvre) FROM Oeuvres';
     $PDOid = $MaBase->query($requeteid);
     $id = [];
@@ -47,6 +58,7 @@
         array_push($id, $ligne);
     }
     $PDOid->closeCursor();
+    
 
 
     // Permet de récupérer les oeuvres pour les lister dans la page listeOeuvres
@@ -56,7 +68,7 @@
     }
     
 
-    // Pour listes déroulantes domaines & formats
+    // Pour accéder à ces données dans les views : 
     function getdom(){
         global $dom;
         return $dom;
