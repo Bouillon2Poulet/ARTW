@@ -1,6 +1,5 @@
 <?php
 include "controller.php";
-include "UploadImage.php";
 
 addOeuvre($MaBase);
 ?>
