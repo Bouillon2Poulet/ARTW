@@ -16,6 +16,16 @@ $url = explode("/", $uri);
 $dest = $url[count($url)-1];
 
 
+// en cas de GET pour oeuvre
+$urlget = explode("?", $uri);
+$destget = $urlget[count($urlget)-2];
+
+$urlget2 = explode("/", $destget);
+$destget2 = $urlget2[count($urlget2)-1];
+
+
+
+
 include "views/header.php";         
 
 // Accueil du site
@@ -31,7 +41,12 @@ if ($dest=="oeuvres") {
 }
 
 // Ajouter une oeuvre
-if ($dest=="addOeuvre") {
+if ($dest=="choixDomaine") {
+    include "views/choixDomaine.php";
+}
+
+// Ajouter une oeuvre
+if ($destget2=="addOeuvre") {
     include "views/addOeuvre.php";
 }
 

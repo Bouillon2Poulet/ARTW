@@ -1,32 +1,48 @@
 <?php
     require "model.php";
 
-    function listeFormats(){
+    function listeDomaines() {
+        for ($k=1; $k<=8; $k++) {
+            echo "<option value=$k>";
+            echo getdom()[$k-1]['nom_domaine'];
+            echo"</option>";
+        }
+        echo '</optgroup>';
+    }
+
+    /// $n = le domaine
+    function listeFormats($n){
         echo '<option value="">--Choisir un format--</option>' ;
-        echo '<optgroup label="Vidéo">';
-        for ($k=1; $k<=6; $k++) {
-            echo "<option value=$k>";
-            echo getformat()[$k-1]['nom_format'];
-            echo"</option>";
-        }
-        echo '</optgroup>';
 
-        echo '<optgroup label="Audio">';
-        for ($k=7; $k<=11; $k++) {
-            echo "<option value=$k>";
-            echo getformat()[$k-1]['nom_format'];
-            echo"</option>";
+        if ($n==1) {
+            echo '<optgroup label="Vidéo">';
+            for ($k=1; $k<=6; $k++) {
+                echo "<option value=$k>";
+                echo getformat()[$k-1]['nom_format'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
         }
-        echo '</optgroup>';
-        
-
-        echo '<optgroup label="Image">';
-        for ($k=12; $k<=21; $k++) {
-            echo "<option value=$k>";
-            echo getformat()[$k-1]['nom_format'];
-            echo"</option>";
+       
+        if ($n==2) {
+            echo '<optgroup label="Audio">';
+            for ($k=7; $k<=11; $k++) {
+                echo "<option value=$k>";
+                echo getformat()[$k-1]['nom_format'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
         }
-        echo '</optgroup>';
+            
+        if ($n==3) {
+            echo '<optgroup label="Image">';
+            for ($k=12; $k<=21; $k++) {
+                echo "<option value=$k>";
+                echo getformat()[$k-1]['nom_format'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
     }
 
     function addOeuvre($MaBase){

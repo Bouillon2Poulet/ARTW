@@ -5,7 +5,7 @@
 
 <!-- Bouton pour add une oeuvre -->
 
-<a href="../index.php/addOeuvre" class="ajout">Ajouter une oeuvre</a>
+<a href="../index.php/choixDomaine" class="ajout">Ajouter une oeuvre</a>
 
 <br><br><br>
 

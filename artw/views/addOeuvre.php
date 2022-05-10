@@ -21,14 +21,19 @@
         <label for="id_format">Format : </label>
         <select id="id_format" name="id_format" required>
             <?php
-                listeFormats();
+                $uri = $_SERVER['REQUEST_URI'];
+                $url = explode("=", $uri);
+                $d = $url[count($url)-1];
+
+                listeFormats($d);
             ?>
         </select>
     </div><br>
 
     <div>
         <?php
-            UploadImage(getlastid()+1); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre uploadée
+            echo "Image représentant votre oeuvre (png ou jpg) : ";
+            UploadImage(getlastid()+1); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
         ?>
         <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $poids_max; ?>">
         <input type="file" id="image" name="image">
