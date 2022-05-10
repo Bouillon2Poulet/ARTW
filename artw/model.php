@@ -1,10 +1,19 @@
 <?php 
 
-    $serveur = 'sqletud.u-pem.fr';
+    
+    // partie de connexion sur serveur de wendy 
+    
+    /*$serveur = 'sqletud.u-pem.fr';
     $bdd = 'wendy.gervais_db';
 
     $user = "wendy.gervais";
-    $pass = "1367";
+    $pass = "1367";*/
+
+    $serveur = "localhost";
+    $bdd = "wendy.gervais_db";
+
+    $user = "root";
+    $pass = "";
 
     // Connexion à la BDD
     $MaBase = new PDO('mysql:host='.$serveur.';dbname='.$bdd, $user, $pass);
