@@ -23,12 +23,14 @@ if ($dest=="index.php") {
     include "views/accueil.php";
 }
 
-// Liste des films
+
+// OEUVRES
+// Liste des oeuvres
 if ($dest=="oeuvres") {
     include "views/listeOeuvres.php";
 }
 
-// Ajouteur une oeuvre
+// Ajouter une oeuvre
 if ($dest=="addOeuvre") {
     include "views/addOeuvre.php";
 }
@@ -46,6 +48,13 @@ if ( $url[count($url)-2] == 'oeuvre') {
 // Suppression d'une oeuvre
 if ( $url[count($url)-2] == 'delete') {
     include "views/deleteOeuvre.php";
+}
+
+
+// ARTISTES
+// Liste des artistes
+if ($dest=="artistes") {
+    include "views/listeArtistes.php";
 }
 
 include "views/footer.php";

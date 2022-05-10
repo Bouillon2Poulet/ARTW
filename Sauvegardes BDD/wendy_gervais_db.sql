@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  sqletud.u-pem.fr
--- Généré le :  Ven 29 Avril 2022 à 19:55
+-- Généré le :  Mar 10 Mai 2022 à 09:22
 -- Version du serveur :  5.7.30-log
 -- Version de PHP :  7.0.33-0+deb9u7
 
@@ -104,15 +104,12 @@ CREATE TABLE `Oeuvres` (
 --
 
 INSERT INTO `Oeuvres` (`id_oeuvre`, `titre`, `description`, `image`, `url`, `id_format`) VALUES
-(1, 'OE', 'Court-métrage IMAC 1', '1.png', 'https://www.youtube.com/watch?v=JlQN5H2ydi8', 1),
-(2, 'Azurites', 'BD réalisée dans le cadre des 23H BD', '2.png', 'https://23hbd.com/participants/2022/triste_temps', 19),
-(3, 'Cadavre Exquis', '', '3.png', '', 17),
-(4, 'Cartographie ISS', '', '4.png', '', 15),
-(5, 'Poster Sunn O))', '', '5.png', '', 15),
-(6, 'Intégrale Point', '', '6.png', '', 17),
-(7, 'Julius', 'SORS LA PROD VOLEE', '7', '', 7),
-(8, 'blibli', 'sdfsdf', '8', 'dsff', 8),
-(9, 'la soupe au choux', 'la musique est cool !!', '9.jpg', 'https://www.youtube.com/watch?v=jqAYnYHEp-Q&ab_channel=kurtc1996', 2);
+(1, 'Œ', 'Court-métrage IMAC 1', '1.png', 'https://www.youtube.com/watch?v=JlQN5H2ydi8', 1),
+(2, 'Azurites', '23H BD de 803Z', '2.png', 'https://23hbd.com/participants/2022/triste_temps/', 19),
+(3, 'Cartographie ISS', 'AA IMAC1', '3.png', '', 15),
+(4, 'Piskel', '', '4.png', '', 17),
+(5, 'Fleabustiers', 'Test de partage', '5.png', 'https://www.youtube.com/watch?v=x0krt2s1PJE', 7),
+(6, 'Intégrale Point', '', '6.png', '', 17);
 
 -- --------------------------------------------------------
 

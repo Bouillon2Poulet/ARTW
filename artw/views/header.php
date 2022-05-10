@@ -50,7 +50,13 @@
     <!-- Barre navigation -->
 
     <?php
-        echo '<nav><a href="'.setCurrentFolder().'index.php">Accueil </a> / Lien nav 1 / <a target="_blank" href="https://github.com/Bouillon2Poulet/ARTW"> Lien du Git </a> / A propos</nav>'
+        echo '<nav><a href="'.setCurrentFolder().'index.php">Accueil </a> 
+        - <a href="'.setCurrentFolder().'index.php/oeuvres">Oeuvres </a> -
+        <a href="'.setCurrentFolder().'index.php/artistes">Artistes</a> -
+
+
+        <a target="_blank" href="https://github.com/Bouillon2Poulet/ARTW"> Lien du Git </a> 
+        - A propos</nav>'
     ?>
 
 <br><br>
