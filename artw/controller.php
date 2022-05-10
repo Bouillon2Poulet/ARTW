@@ -143,3 +143,43 @@
         return $k.$extention;
 
     }
+
+
+
+
+
+
+    function listeRole($n){
+        echo '<option value="">--Choisir un rôle--</option>' ;
+
+        if ($n==1) {
+            echo '<optgroup label="Vidéo">';
+            for ($k=1; $k<=9; $k++) {
+                echo "<option value=$k>";
+                echo getroles()[$k-1]['rôle'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+       
+        if ($n==2) {
+            echo '<optgroup label="Audio">';
+            for ($k=7; $k<=11; $k++) {
+                echo "<option value=$k>";
+                echo getroles()[$k-1]['rôle'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+            
+        if ($n==3) {
+            echo '<optgroup label="Image">';
+            for ($k=12; $k<=21; $k++) {
+                echo "<option value=$k>";
+                echo getroles()[$k-1]['rôle'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+    }
+

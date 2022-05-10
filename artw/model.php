@@ -96,4 +96,45 @@
     
 
 
+
+
+
+
+
+
+
+
+
+    // Selection de toutes les personnes
+    $requetePersonnes = 'SELECT * FROM Personnes';
+    $PDOpersonnes = $MaBase->query($requetePersonnes);
+    $personnes = [];
+    while($ligne = $PDOpersonnes->fetch()){
+        array_push($personnes, $ligne);
+    }
+    $PDOpersonnes->closeCursor();
+
+
+
+    // Selection de tous les rôles
+    $requeteRoles = 'SELECT * FROM Rôles';
+    $PDOroles = $MaBase->query($requeteRoles);
+    $roles = [];
+    while($ligne = $PDOroles->fetch()){
+        array_push($roles, $ligne);
+    }
+    $PDOroles->closeCursor();
+
+
+    function getpersonnes(){
+        global $personnes;
+        return $personnes;
+    }
+
+    function getroles(){
+        global $roles;
+        return $roles;
+    }
+
+    
 ?>
