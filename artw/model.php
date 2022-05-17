@@ -88,7 +88,6 @@
         return $f;
     }
 
-
     function getlastid(){
         global $id;
         return $id[0][0];
@@ -142,9 +141,7 @@
         }
         $PDO->closeCursor();
 
-        echo $nb[0][0];
-
-        global $nb;
+      
         return $nb[0][0];
 
     }
