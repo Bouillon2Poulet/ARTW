@@ -35,7 +35,7 @@
             echo '</td>';
     
             echo '<td>';
-            getNbOeuvre($p['id_personne'], $MaBase);
+            echo getNbOeuvre($p['id_personne'], $MaBase);
             echo '</td>';
     
             
