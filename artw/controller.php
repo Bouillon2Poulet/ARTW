@@ -36,7 +36,7 @@
             
         if ($n==3) {
             echo '<optgroup label="Image">';
-            for ($k=12; $k<=21; $k++) {
+            for ($k=12; $k<=21; $k++) { 
                 echo "<option value=$k>";
                 echo getformat()[$k-1]['nom_format'];
                 echo"</option>";

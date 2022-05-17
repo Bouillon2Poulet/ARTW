@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 17 mai 2022 à 06:57
+-- Généré le : mar. 17 mai 2022 à 08:01
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `formats` (
   `nom_format` text NOT NULL,
   `id_domaine` int(11) NOT NULL,
   PRIMARY KEY (`id_format`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `formats`
@@ -103,7 +103,8 @@ INSERT INTO `formats` (`id_format`, `nom_format`, `id_domaine`) VALUES
 (34, 'Théâtre', 6),
 (35, 'Jeux vidéos', 7),
 (36, 'Sites', 7),
-(37, 'Expérience numérique', 7);
+(37, 'Expérience numérique', 7),
+(38, 'Autre', 8);
 
 -- --------------------------------------------------------
 
@@ -232,16 +233,15 @@ INSERT INTO `rôles` (`id_rôle`, `rôle`, `id_domaine`) VALUES
 (16, 'Illustrateur', 3),
 (17, 'Dessinateur', 3),
 (18, 'Peintre', 3),
-(19, 'Photographe', 3),
-(20, 'Écrivain', 4),
-(21, 'Créateur', 5),
-(22, 'Performeur', 6),
-(23, 'Chorégraphe', 6),
-(24, 'Metteur en scène', 6),
-(25, 'Créateur.ice', 7),
-(26, 'Programmeur.e', 7),
-(27, 'Designer', 7),
-(28, 'Autre', 8);
+(19, 'Écrivain', 4),
+(20, 'Créateur', 5),
+(21, 'Performeur', 6),
+(22, 'Chorégraphe', 6),
+(23, 'Metteur en scène', 6),
+(24, 'Créateur.ice', 7),
+(25, 'Programmeur.e', 7),
+(26, 'Designer', 7),
+(27, 'Autre', 8);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
