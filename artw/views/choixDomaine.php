@@ -10,7 +10,7 @@
         <label for="domaine">De quel domaine sera votre oeuvre ?</label>
         <select id="domaine" name="domaine" required>
             <?php
-                listeDomaines();
+                listeDomaines($MaBase);
             ?>
         </select>
     </div>

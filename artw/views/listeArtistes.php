@@ -20,7 +20,7 @@
         <th>Nombre d\'oeuvres</th>
         </tr>';
     
-        foreach(getPersonnes() as $p) {
+        foreach(getpersonnes($MaBase) as $p) {
             echo '<tr>';
             echo '<td>';
             echo '<a href="artiste/';

@@ -18,7 +18,14 @@ $dest = $url[count($url)-1];
 
 // en cas de GET pour oeuvre
 $urlget = explode("?", $uri);
-$destget = $urlget[count($urlget)-2];
+
+
+
+if (count($urlget)>=2){
+    $destget = $urlget[count($urlget)-2];
+}else{
+    $destget = $urlget[count($urlget)-1];
+}
 
 $urlget2 = explode("/", $destget);
 $destget2 = $urlget2[count($urlget2)-1];
@@ -26,7 +33,7 @@ $destget2 = $urlget2[count($urlget2)-1];
 
 
 
-include "views/header.php";         
+include "views/header.php";
 
 // Accueil du site
 if ($dest=="index.php") {
