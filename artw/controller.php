@@ -65,6 +65,19 @@
             $req = "INSERT INTO oeuvres(id_oeuvre, titre, description, image, url, id_format) VALUES (NULL," . $gtitre . "," . $gdesc . "," . $gimg . "," . $glien . "," . $gformat . ")";
             $MaBase->exec($req);
 
+            $idp = $_POST['id_personne'];
+            $idr = $_POST['id_rôle'];
+            $idoeuvre = getlastid()+1;
+
+            $gidp= "'" . $idp . "'";
+            $gidr = "'" . $idr . "'";
+            $gido = "'" . $idoeuvre . "'";
+
+            $reqrole = "INSERT INTO remplir_role(id_personne, id_rôle, id_oeuvre) VALUES (" . $gidp . "," . $gidr . "," . $gido .")";
+            $MaBase->exec($reqrole);
+
+
+
         } else {
             http_response_code(404);
         }
@@ -81,6 +94,10 @@
         // Suppression de l'oeuvre
         $reqdel = 'DELETE FROM oeuvres WHERE id_oeuvre='."'".$dest."'";
         $MaBase->exec($reqdel);
+
+        // Suppression des rôles liés à l'oeuvre
+        $reqdelrole = 'DELETE FROM remplir_role WHERE id_oeuvre='."'".$dest."'";
+        $MaBase->exec($reqdelrole);
 
 
     }
@@ -149,7 +166,7 @@
 
 
 
-    function listeRole($n){
+    function listeRoles($n){
         echo '<option value="">--Choisir un rôle--</option>' ;
 
         if ($n==1) {
@@ -164,7 +181,7 @@
        
         if ($n==2) {
             echo '<optgroup label="Audio">';
-            for ($k=7; $k<=11; $k++) {
+            for ($k=10; $k<=14; $k++) {
                 echo "<option value=$k>";
                 echo getroles()[$k-1]['rôle'];
                 echo"</option>";
@@ -174,12 +191,26 @@
             
         if ($n==3) {
             echo '<optgroup label="Image">';
-            for ($k=12; $k<=21; $k++) {
+            for ($k=15; $k<=18; $k++) {
                 echo "<option value=$k>";
                 echo getroles()[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
         }
+    }
+
+    function listePersonnes(){
+        echo '<option value="">--Choisir un artiste--</option>' ;
+
+        for ($k=1; $k<=getlastid2(); $k++) {
+            echo "<option value=$k>";
+            echo getpersonnes()[$k-1]['prenom'];
+            echo ' ';
+            echo getpersonnes()[$k-1]['nom'];
+            echo"</option>";
+
+        }
+        
     }
 
