@@ -1,7 +1,5 @@
 <?php
     require "model.php";
-
-
     function UploadImage($k) {
 
         $poids_max = 50000000; // Poids max de l'image en octets (1Ko = 1024 octets) 
@@ -60,25 +58,27 @@
 
     }
 
+    
+
 
     function listeDomaines() {
         for ($k=1; $k<=8; $k++) {
             echo "<option value=$k>";
-            echo getdom()[$k-1]['nom_domaine'];
+            echo getdom($MaBase)[$k-1]['nom_domaine'];
             echo"</option>";
         }
         echo '</optgroup>';
     }
 
     /// $n = le domaine
-    function listeFormats($n){
+    function listeFormats($Mabase,$n){
         echo '<option value="">--Choisir un format--</option>' ;
 
         if ($n==1) {
             echo '<optgroup label="Vidéo">';
             for ($k=1; $k<=6; $k++) {
                 echo "<option value=$k>";
-                echo getformat()[$k-1]['nom_format'];
+                echo getformat($Mabase)[$k-1]['nom_format'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -88,7 +88,7 @@
             echo '<optgroup label="Audio">';
             for ($k=7; $k<=11; $k++) {
                 echo "<option value=$k>";
-                echo getformat()[$k-1]['nom_format'];
+                echo getformat($MaBase)[$k-1]['nom_format'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -98,7 +98,7 @@
             echo '<optgroup label="Image">';
             for ($k=12; $k<=21; $k++) { 
                 echo "<option value=$k>";
-                echo getformat()[$k-1]['nom_format'];
+                echo getformat($MaBase)[$k-1]['nom_format'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -108,7 +108,7 @@
             echo '<optgroup label="Texte">';
             for ($k=22; $k<=25; $k++) {
                 echo "<option value=$k>";
-                echo getformat()[$k-1]['nom_format'];
+                echo getformat($MaBase)[$k-1]['nom_format'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -118,7 +118,7 @@
             echo '<optgroup label="Volume">';
             for ($k=26; $k<=30; $k++) {
                 echo "<option value=$k>";
-                echo getformat()[$k-1]['nom_format'];
+                echo getformat($MaBase)[$k-1]['nom_format'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -128,7 +128,7 @@
             echo '<optgroup label="Performance">';
             for ($k=31; $k<=34; $k++) {
                 echo "<option value=$k>";
-                echo getformat()[$k-1]['nom_format'];
+                echo getformat($MaBase)[$k-1]['nom_format'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -138,7 +138,7 @@
             echo '<optgroup label="Interactif">';
             for ($k=35; $k<=37; $k++) {
                 echo "<option value=$k>";
-                echo getformat()[$k-1]['nom_format'];
+                echo getformat($MaBase)[$k-1]['nom_format'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -148,7 +148,7 @@
             echo '<optgroup label="Autre">';
             for ($k=38; $k<=38; $k++) {
                 echo "<option value=$k>";
-                echo getformat()[$k-1]['nom_format'];
+                echo getformat($MaBase)[$k-1]['nom_format'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -179,7 +179,7 @@
 
             $idp = $_POST['id_personne'];
             $idr = $_POST['id_rôle'];
-            $idoeuvre = getlastid()+1;
+            $idoeuvre = getlastid($Mabase)+1;
 
             $gidp= "'" . $idp . "'";
             $gidr = "'" . $idr . "'";
@@ -226,7 +226,7 @@
             echo '<optgroup label="Vidéo">';
             for ($k=1; $k<=9; $k++) {
                 echo "<option value=$k>";
-                echo getroles()[$k-1]['rôle'];
+                echo getroles($Mabase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -236,7 +236,7 @@
             echo '<optgroup label="Audio">';
             for ($k=10; $k<=14; $k++) {
                 echo "<option value=$k>";
-                echo getroles()[$k-1]['rôle'];
+                echo getroles($Mabase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -246,7 +246,27 @@
             echo '<optgroup label="Image">';
             for ($k=15; $k<=18; $k++) {
                 echo "<option value=$k>";
-                echo getroles()[$k-1]['rôle'];
+                echo getroles($Mabase)[$k-1]['rôle'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+
+        if ($n==4) {
+            echo '<optgroup label="Texte">';
+            for ($k=19; $k<=19; $k++) {
+                echo "<option value=$k>";
+                echo getroles($Mabase)[$k-1]['rôle'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+
+        if ($n==5) {
+            echo '<optgroup label="Volume">';
+            for ($k=20; $k<=20; $k++) {
+                echo "<option value=$k>";
+                echo getroles($Mabase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -256,7 +276,7 @@
             echo '<optgroup label="Perfomance">';
             for ($k=21; $k<=23; $k++) {
                 echo "<option value=$k>";
-                echo getroles()[$k-1]['rôle'];
+                echo getroles($Mabase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -266,7 +286,7 @@
             echo '<optgroup label="Interactif">';
             for ($k=24; $k<=26; $k++) {
                 echo "<option value=$k>";
-                echo getroles()[$k-1]['rôle'];
+                echo getroles($Mabase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -276,7 +296,7 @@
             echo '<optgroup label="Autre">';
             for ($k=27; $k<=27; $k++) {
                 echo "<option value=$k>";
-                echo getroles()[$k-1]['rôle'];
+                echo getroles($Mabase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -287,11 +307,11 @@
     function listePersonnes(){
         echo '<option value="">--Choisir un artiste--</option>' ;
 
-        for ($k=1; $k<=getlastid2(); $k++) {
+        for ($k=1; $k<=getlastid2($MaBase); $k++) {
             echo "<option value=$k>";
-            echo getPersonnes()[$k-1]['prenom'];
+            echo getpersonnes($MaBase)[$k-1]['prenom'];
             echo ' ';
-            echo getPersonnes()[$k-1]['nom'];
+            echo getpersonnes($MaBase)[$k-1]['nom'];
             echo"</option>";
 
         }

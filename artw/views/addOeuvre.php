@@ -33,7 +33,7 @@
     <div>
         <?php
             echo "Image représentant votre oeuvre (png ou jpg) : ";
-            UploadImage(getlastid()+1); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
+            UploadImage(getlastid($Mabase)+1); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
         ?>
         <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $poids_max; ?>">
         <input type="file" id="image" name="image">

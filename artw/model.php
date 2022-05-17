@@ -7,8 +7,10 @@
     // $bdd = 'wendy.gervais_db';
 
 
+    //////////////////////
+
     $serveur = "localhost";
-    $bdd = "ARTW";
+    $bdd = "wendy.gervais_db";
 
     $user = "wendy";
     $pass = "1367";
@@ -25,6 +27,18 @@
 
 
     // Selection de toutes les oeuvres+domaine+format
+
+
+    function requeteInTab($req,$MaBase){
+        $PDO = $MaBase->query($req);
+        $tab = [];
+        while ($ligne = $PDO->fetch()){
+            array_push($tab,$ligne);
+        }
+        $PDO->closeCursor();
+        return $tab;
+    }
+
     $requete = 'SELECT id_oeuvre, titre, description, image, url, domaines.nom_domaine, formats.nom_format FROM oeuvres JOIN formats ON oeuvres.id_format=formats.id_format JOIN domaines ON domaines.id_domaine=formats.id_domaine';
     $PDOoeuvres = $MaBase->query($requete);
     $oeuvres = [];
@@ -33,42 +47,7 @@
     }
     $PDOoeuvres->closeCursor();
 
-
-
-    // Selection de tous les domaines
-    $requetedom = 'SELECT id_domaine, nom_domaine FROM domaines';
-    $PDOdom = $MaBase->query($requetedom);
-    $dom = [];
-    while($ligne = $PDOdom->fetch()){
-        array_push($dom, $ligne);
-    }
-    $PDOdom->closeCursor();
-
-
-
-
-    // Selection de tous les formats
-    $requetef = 'SELECT id_format, nom_format FROM formats';
-    $PDOf = $MaBase->query($requetef);
-    $f = [];
-    while($ligne = $PDOf->fetch()){
-        array_push($f, $ligne);
-    }
-    $PDOf->closeCursor();
-
-
-
-
-    // Récupération de l'id de la dernière oeuvre
-    $requeteid = 'SELECT MAX(id_oeuvre) FROM oeuvres';
-    $PDOid = $MaBase->query($requeteid);
-    $id = [];
-    while($ligne = $PDOid->fetch()){
-        array_push($id, $ligne);
-    }
-    $PDOid->closeCursor();
-
-
+    
 
 
     // Permet de récupérer les oeuvres pour les lister dans la page listeOeuvres
@@ -78,18 +57,27 @@
     }
     
 
-    // Pour accéder à ces données dans les views : 
-    function getdom(){
+    // récup les domaines 
+    function getdom($MaBase){
+        $requetedom = 'SELECT id_domaine, nom_domaine FROM domaines';
+        $dom = requeteInTab($requetedom,$MaBase);
+
         global $dom;
         return $dom;
     }
 
-    function getformat(){
+    // récupère tous les format
+    function getformat($MaBase){
+        $requetef = 'SELECT id_format, nom_format FROM formats';
+        $f = requeteInTab($requetef,$MaBase);
         global $f;
         return $f;
     }
 
-    function getlastid(){
+    // récupère toutes les id
+    function getlastid($MaBase){
+        $requeteid = 'SELECT MAX(id_oeuvre) FROM oeuvres';
+        $id = requeteInTab($requeteid,$MaBase);
         global $id;
         return $id[0][0];
     }
@@ -128,17 +116,8 @@
     $PDOroles->closeCursor();
 
 
-    // Récupération de l'id de la dernière personne
-    $requeteid = 'SELECT MAX(id_personne) FROM personnes';
-    $PDOid2 = $MaBase->query($requeteid);
-    $id2 = [];
-    while($ligne = $PDOid2->fetch()){
-        array_push($id2, $ligne);
-    }
-    $PDOid->closeCursor();
 
-
-
+    // récup le nombre d'oeuvre
     function getNbOeuvre($n, $MaBase) {
 
         $gn = "'".$n."'";
@@ -158,24 +137,26 @@
     }
         
 
-
-    function getPersonnes(){
+    // récup toutes les personnes
+    function getpersonnes($MaBase){
+        $requetePersonnes = 'SELECT * FROM personnes';
+        $personnes = requeteInTab($requetePersonnes,$MaBase);    
         global $personnes;
         return $personnes;
     }
 
-    function getPersonnesandRoles(){
-        global $personnesF;
-        return $personnesF;
-    }
-
-    function getroles(){
+    // récup tous les rôles
+    function getroles($MaBase){
+        $requeteRoles = 'SELECT * FROM rôles';
+        $roles = requeteInTab($requeteRoles,$MaBase);
         global $roles;
         return $roles;
     }
 
-
-    function getlastid2(){
+    // récup l'id de la dernière personne
+    function getlastid2($MaBase){
+        $requeteid2 = 'SELECT MAX(id_personne) FROM personnes';
+        $id2 = requeteInTab($requeteid2,$MaBase);
         global $id2;
         return $id2[0][0];
     }
