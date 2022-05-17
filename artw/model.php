@@ -3,11 +3,11 @@
     
     // partie de connexion sur serveur de wendy 
     
-    $serveur = 'sqletud.u-pem.fr';
-    $bdd = 'wendy.gervais_db';
+    // $serveur = 'sqletud.u-pem.fr';
+    // $bdd = 'wendy.gervais_db';
 
-    $user = "wendy.gervais";
-    $pass = "1367";
+    // $user = "wendy.gervais";
+    // $pass = "1367";
 
     //////////////////////
 
@@ -22,17 +22,7 @@
     $MaBase->exec("SET NAMES UTF8");
 
 
-
-
-
     // Selection de toutes les oeuvres+domaine+format
-    $requete = 'SELECT id_oeuvre, titre, description, image, url, domaines.nom_domaine, formats.nom_format FROM oeuvres JOIN formats ON oeuvres.id_format=formats.id_format JOIN domaines ON domaines.id_domaine=formats.id_domaine';
-    $PDOoeuvres = $MaBase->query($requete);
-    $oeuvres = [];
-    while($ligne = $PDOoeuvres->fetch()){
-        array_push($oeuvres, $ligne);
-    }
-    $PDOoeuvres->closeCursor();
 
 
     function requeteInTab($req,$MaBase){
@@ -45,17 +35,16 @@
         return $tab;
     }
 
-
-    // Selection de tous les domaines
-    $requetedom = 'SELECT id_domaine, nom_domaine FROM domaines';
-    $dom = requeteInTab($requetedom,$MaBase);
+    $requete = 'SELECT id_oeuvre, titre, description, image, url, domaines.nom_domaine, formats.nom_format FROM oeuvres JOIN formats ON oeuvres.id_format=formats.id_format JOIN domaines ON domaines.id_domaine=formats.id_domaine';
+    $PDOoeuvres = $MaBase->query($requete);
+    $oeuvres = [];
+    while($ligne = $PDOoeuvres->fetch()){
+        array_push($oeuvres, $ligne);
+    }
+    $PDOoeuvres->closeCursor();
 
     
-    // Selection de tous les id
-    $requeteid = 'SELECT MAX(id_oeuvre) FROM oeuvres';
-    $id = requeteInTab($requeteid,$MaBase);
 
- 
 
     // Permet de récupérer les oeuvres pour les lister dans la page listeOeuvres
     function getOeuvres(){
@@ -90,6 +79,38 @@
     }
 
 
+    
+
+    // Selection de toutes les personnes+leurs rôles+oeuvres
+    $requeteFullPersonnes = 'SELECT * FROM personnes LEFT JOIN remplir_role ON personnes.id_personne = remplir_role.id_personne LEFT JOIN rôles ON remplir_role.id_rôle = rôles.id_rôle LEFT JOIN oeuvres ON remplir_role.id_oeuvre = oeuvres.id_oeuvre';
+    
+    $PDOpersonnesF = $MaBase->query($requeteFullPersonnes);
+    $personnesF = [];
+    while($ligne = $PDOpersonnesF->fetch()){
+        array_push($personnesF, $ligne);
+    }
+    $PDOpersonnesF->closeCursor();
+
+
+    // Selection de toutes les personnes
+    $requetePersonnes = 'SELECT * FROM personnes';
+    $PDOpersonnes = $MaBase->query($requetePersonnes);
+    $personnes = [];
+    while($ligne = $PDOpersonnes->fetch()){
+        array_push($personnes, $ligne);
+    }
+    $PDOpersonnes->closeCursor();
+
+
+    // Selection de tous les rôles
+    $requeteRoles = 'SELECT * FROM rôles';
+    $PDOroles = $MaBase->query($requeteRoles);
+    $roles = [];
+    while($ligne = $PDOroles->fetch()){
+        array_push($roles, $ligne);
+    }
+    $PDOroles->closeCursor();
+
 
 
     // récup le nombre d'oeuvre
@@ -106,9 +127,7 @@
         }
         $PDO->closeCursor();
 
-        echo $nb[0][0];
-
-        global $nb;
+      
         return $nb[0][0];
 
     }

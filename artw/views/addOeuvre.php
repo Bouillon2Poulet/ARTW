@@ -37,7 +37,9 @@
         ?>
         <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $poids_max; ?>">
         <input type="file" id="image" name="image">
-    </div><br>
+    </div>
+
+        <br>
 
     <div>
         <label for="lien">Lien pour consulter le projet : </label>
@@ -45,24 +47,22 @@
     </div><br>
 
     <div>
+        <label for="id_personne">Artiste : </label>
+            <select id="id_personne" name="id_personne" required>
+                <?php
+                    listePersonnes();
+                ?>
+            </select>
 
-    <label for="id_personne">Artiste : </label>
-        <select id="id_personne" name="id_personne" required>
-            <?php
-                listePersonnes();
-            ?>
-        </select>
+            <select id="id_rôle" name="id_rôle" required>
+                <?php
+                    $uri = $_SERVER['REQUEST_URI'];
+                    $url = explode("=", $uri);
+                    $d = $url[count($url)-1];
 
-        <select id="id_rôle" name="id_rôle" required>
-            <?php
-                $uri = $_SERVER['REQUEST_URI'];
-                $url = explode("=", $uri);
-                $d = $url[count($url)-1];
-
-                listeRoles($d);
-            ?>
-        </select> <br>
-
+                    listeRoles($d);
+                ?>
+            </select> <br>
     </div>
 
     <br>
