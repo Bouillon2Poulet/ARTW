@@ -1,5 +1,8 @@
 <?php
-    require "model.php";
+    include "model.php";
+    
+
+    // Uploade l'image nommée 'k' sur le serveur, et renvoie 'k.png'/'k.jpg'
     function UploadImage($k) {
 
         $poids_max = 50000000; // Poids max de l'image en octets (1Ko = 1024 octets) 
@@ -58,10 +61,8 @@
 
     }
 
-    
-
-
-    function listeDomaines() {
+    // Liste déroulante des domaines
+    function listeDomaines($MaBase) {
         for ($k=1; $k<=8; $k++) {
             echo "<option value=$k>";
             echo getdom($MaBase)[$k-1]['nom_domaine'];
@@ -70,15 +71,15 @@
         echo '</optgroup>';
     }
 
-    /// $n = le domaine
-    function listeFormats($Mabase,$n){
+    // Liste déroulante des formats du domaine n
+    function listeFormats($MaBase,$n){
         echo '<option value="">--Choisir un format--</option>' ;
 
         if ($n==1) {
             echo '<optgroup label="Vidéo">';
             for ($k=1; $k<=6; $k++) {
                 echo "<option value=$k>";
-                echo getformat($Mabase)[$k-1]['nom_format'];
+                echo getformat($MaBase)[$k-1]['nom_format'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -155,7 +156,7 @@
         }
     }
 
-
+    // Ajoute oeuvre depuis formulaire
     function addOeuvre($MaBase){
 
         $method=strtolower($_SERVER['REQUEST_METHOD']);
@@ -172,14 +173,14 @@
             $gformat = "'" . $format . "'";
             $glien = "'" . $lien . "'";
             
-            $gimg = "'" . UploadImage(getlastid() + 1) . "'";
+            $gimg = "'" . UploadImage(getlastid($MaBase) + 1) . "'";
 
             $req = "INSERT INTO oeuvres(id_oeuvre, titre, description, image, url, id_format) VALUES (NULL," . $gtitre . "," . $gdesc . "," . $gimg . "," . $glien . "," . $gformat . ")";
             $MaBase->exec($req);
 
             $idp = $_POST['id_personne'];
             $idr = $_POST['id_rôle'];
-            $idoeuvre = getlastid($Mabase)+1;
+            $idoeuvre = getlastid($MaBase)+1;
 
             $gidp= "'" . $idp . "'";
             $gidr = "'" . $idr . "'";
@@ -195,7 +196,7 @@
         }
     }
     
-
+    // Delete l'oeuvre (numéro /get)
     function deleteOeuvre($MaBase){
         
         // Récupération id_oeuvre à supprimer dans l'URL
@@ -214,19 +215,15 @@
 
     }
 
-
-
-
-
-
-    function listeRoles($n){
+    // Liste déroulante des rôles du domaine n
+    function listeRoles($MaBase, $n){
         echo '<option value="">--Choisir un rôle--</option>' ;
 
         if ($n==1) {
             echo '<optgroup label="Vidéo">';
             for ($k=1; $k<=9; $k++) {
                 echo "<option value=$k>";
-                echo getroles($Mabase)[$k-1]['rôle'];
+                echo getroles($MaBase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -236,7 +233,7 @@
             echo '<optgroup label="Audio">';
             for ($k=10; $k<=14; $k++) {
                 echo "<option value=$k>";
-                echo getroles($Mabase)[$k-1]['rôle'];
+                echo getroles($MaBase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -246,7 +243,7 @@
             echo '<optgroup label="Image">';
             for ($k=15; $k<=18; $k++) {
                 echo "<option value=$k>";
-                echo getroles($Mabase)[$k-1]['rôle'];
+                echo getroles($MaBase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -256,7 +253,7 @@
             echo '<optgroup label="Texte">';
             for ($k=19; $k<=19; $k++) {
                 echo "<option value=$k>";
-                echo getroles($Mabase)[$k-1]['rôle'];
+                echo getroles($MaBase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -266,7 +263,7 @@
             echo '<optgroup label="Volume">';
             for ($k=20; $k<=20; $k++) {
                 echo "<option value=$k>";
-                echo getroles($Mabase)[$k-1]['rôle'];
+                echo getroles($MaBase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -276,7 +273,7 @@
             echo '<optgroup label="Perfomance">';
             for ($k=21; $k<=23; $k++) {
                 echo "<option value=$k>";
-                echo getroles($Mabase)[$k-1]['rôle'];
+                echo getroles($MaBase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -286,7 +283,7 @@
             echo '<optgroup label="Interactif">';
             for ($k=24; $k<=26; $k++) {
                 echo "<option value=$k>";
-                echo getroles($Mabase)[$k-1]['rôle'];
+                echo getroles($MaBase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
@@ -296,15 +293,15 @@
             echo '<optgroup label="Autre">';
             for ($k=27; $k<=27; $k++) {
                 echo "<option value=$k>";
-                echo getroles($Mabase)[$k-1]['rôle'];
+                echo getroles($MaBase)[$k-1]['rôle'];
                 echo"</option>";
             }
             echo '</optgroup>';
         }
     }
 
-
-    function listePersonnes(){
+    // Liste déroulante des personnes
+    function listePersonnes($MaBase){
         echo '<option value="">--Choisir un artiste--</option>' ;
 
         for ($k=1; $k<=getlastid2($MaBase); $k++) {

@@ -2,7 +2,7 @@
 <?php 
     include "controller.php";
 
-    foreach(getOeuvres() as $o) {
+    foreach(getOeuvres($MaBase) as $o) {
         if ($o['id_oeuvre'] == $dest) {
             echo "Titre : ";
             echo $o['titre'];

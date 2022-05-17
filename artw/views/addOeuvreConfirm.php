@@ -1,11 +1,10 @@
 <?php
 include "controller.php";
-
-addOeuvre($MaBase);
-
-
+    addOeuvre($MaBase);
 ?>
 
-<p>Oeuvre ajoutée !</p>
+Oeuvre ajoutée avec succès !
+
+<br>
 
 <a href="../index.php/oeuvres"> <- Retour à la liste des oeuvres</a>

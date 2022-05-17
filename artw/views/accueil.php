@@ -1,6 +1,5 @@
+    <div>Bonjour, bienvenue sur notre site !</div>
 
-<div>Bonjour, bienvenue sur notre site !</div>
+    <br>
 
-<br>
-
-<a href="index.php/oeuvres">Accéder aux oeuvres -> </a>
+    <a href="index.php/oeuvres">Accéder aux oeuvres -> </a>

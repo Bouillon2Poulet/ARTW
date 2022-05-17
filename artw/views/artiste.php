@@ -1,8 +1,7 @@
-
 <?php 
     include "controller.php";
 
-    foreach(getPersonnes() as $o) {
+    foreach(getPersonnes($MaBase) as $o) {
         if ($o['id_personne'] == $dest) {
             echo " <img class='photoArtiste' alt='Photo artiste' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/". $o['image']."'>";
             echo "<br>";
@@ -11,9 +10,9 @@
             echo "<br>";
             echo "Rôle(s) : ";
             echo "<ul>";
-            foreach(getPersonnesandRoles() as $p)
+            foreach(getPersonnesAndRoles($MaBase) as $p)
             {
-                if ($p[id_personne]== $dest)
+                if ($p['id_personne']== $dest)
                 {
                     echo "<li>";
                     echo $p["rôle"];

@@ -4,7 +4,6 @@
 
 
 <!-- Bouton pour add une oeuvre -->
-
 <a href="../index.php/choixDomaine" class="ajout">Ajouter une oeuvre</a>
 
 <br><br><br>
@@ -20,7 +19,7 @@
     <th>Format</th>
     </tr>';
 
-    foreach(getOeuvres() as $o) {
+    foreach(getOeuvres($MaBase) as $o) {
         echo '<tr>';
         echo '<td>';
         echo '<a href="oeuvre/';
