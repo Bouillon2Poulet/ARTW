@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 10 mai 2022 à 08:12
+-- Généré le : mar. 17 mai 2022 à 06:57
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `formats` (
   `nom_format` text NOT NULL,
   `id_domaine` int(11) NOT NULL,
   PRIMARY KEY (`id_format`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `formats`
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `oeuvres` (
   `url` text NOT NULL,
   `id_format` int(11) NOT NULL,
   PRIMARY KEY (`id_oeuvre`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `oeuvres`
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `rôles` (
   `rôle` text NOT NULL,
   `id_domaine` int(11) NOT NULL,
   PRIMARY KEY (`id_rôle`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `rôles`
@@ -228,28 +228,20 @@ INSERT INTO `rôles` (`id_rôle`, `rôle`, `id_domaine`) VALUES
 (12, 'Ingénieur son', 2),
 (13, 'Chanteur', 2),
 (14, 'Voix', 2),
-(15, 'Mixeur', 2),
-(16, 'Compositeur', 2),
-(17, 'Ingénieur son', 2),
-(18, 'Chanteur', 2),
-(19, 'Voix', 2),
-(20, 'Photographe', 3),
-(21, 'Illustrateur', 3),
-(22, 'Dessinateur', 3),
-(23, 'Peintre', 3),
-(24, 'Photographe', 3),
-(25, 'Illustrateur', 3),
-(26, 'Dessinateur', 3),
-(27, 'Peintre', 3),
-(28, 'Écrivain', 4),
-(29, 'Créateur', 5),
-(30, 'Performeur', 6),
-(31, 'Chorégraphe', 6),
-(32, 'Metteur en scène', 6),
-(33, 'Créateur.ice', 7),
-(34, 'Programmeur.e', 7),
-(35, 'Designer', 7),
-(36, 'Autre', 8);
+(15, 'Photographe', 3),
+(16, 'Illustrateur', 3),
+(17, 'Dessinateur', 3),
+(18, 'Peintre', 3),
+(19, 'Photographe', 3),
+(20, 'Écrivain', 4),
+(21, 'Créateur', 5),
+(22, 'Performeur', 6),
+(23, 'Chorégraphe', 6),
+(24, 'Metteur en scène', 6),
+(25, 'Créateur.ice', 7),
+(26, 'Programmeur.e', 7),
+(27, 'Designer', 7),
+(28, 'Autre', 8);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
