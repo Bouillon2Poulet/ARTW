@@ -62,7 +62,7 @@
             $glien = "'" . $lien . "'";
             $gimg = "'" . UploadImage(getlastid() + 1) . "'";
 
-            $req = "INSERT INTO Oeuvres(id_oeuvre, titre, description, image, url, id_format) VALUES (NULL," . $gtitre . "," . $gdesc . "," . $gimg . "," . $glien . "," . $gformat . ")";
+            $req = "INSERT INTO oeuvres(id_oeuvre, titre, description, image, url, id_format) VALUES (NULL," . $gtitre . "," . $gdesc . "," . $gimg . "," . $glien . "," . $gformat . ")";
             $MaBase->exec($req);
 
         } else {
@@ -79,7 +79,7 @@
         $dest = $url[count($url)-1];
 
         // Suppression de l'oeuvre
-        $reqdel = 'DELETE FROM Oeuvres WHERE id_oeuvre='."'".$dest."'";
+        $reqdel = 'DELETE FROM oeuvres WHERE id_oeuvre='."'".$dest."'";
         $MaBase->exec($reqdel);
 
 
