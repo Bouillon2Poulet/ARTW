@@ -17,7 +17,7 @@
                     echo "<li>";
                     echo $p["rôle"];
                     echo " dans ";
-                    echo '<a href ="../../index.php/oeuvres/'.$p["id_personne"]['id_oeuvre'].'">'.$p['titre'].'</a>';
+                    echo '<a href ="../../index.php/oeuvre/'.$p['id_oeuvre'].'">'.$p['titre'].'</a>';
                     echo "</li>";
                 }
             }
