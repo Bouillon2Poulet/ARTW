@@ -6,14 +6,18 @@
     // $serveur = 'sqletud.u-pem.fr';
     // $bdd = 'wendy.gervais_db';
 
-    // $user = "wendy.gervais";
-    // $pass = "1367";
 
     $serveur = "localhost";
     $bdd = "ARTW";
 
-    $user = "rom1";
-    $pass = "852456";
+    $user = "wendy";
+    $pass = "1367";
+
+
+    // $user = "rom1";
+    // $pass = "852456";
+
+    
 
     // Connexion à la BDD
     $MaBase = new PDO('mysql:host='.$serveur.';dbname='.$bdd, $user, $pass);
