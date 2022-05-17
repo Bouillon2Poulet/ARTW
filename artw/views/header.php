@@ -8,7 +8,7 @@
 
         if ($current=="index.php") {
             return '';
-        } elseif ($url[count($url)-2] == 'oeuvre' || $url[count($url)-2] == 'delete'){
+        } elseif ($url[count($url)-2] == 'oeuvre' || $url[count($url)-2] == 'delete'|| $url[count($url)-2] == 'artiste'){
             return '../../';
         } else {
             return '../';

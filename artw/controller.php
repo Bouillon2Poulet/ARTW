@@ -286,9 +286,9 @@
 
         for ($k=1; $k<=getlastid2(); $k++) {
             echo "<option value=$k>";
-            echo getpersonnes()[$k-1]['prenom'];
+            echo getPersonnes()[$k-1]['prenom'];
             echo ' ';
-            echo getpersonnes()[$k-1]['nom'];
+            echo getPersonnes()[$k-1]['nom'];
             echo"</option>";
 
         }

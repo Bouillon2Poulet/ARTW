@@ -72,6 +72,12 @@ if ($dest=="artistes") {
     include "views/listeArtistes.php";
 }
 
+// Visualisation d'un artiste
+else if ( $url[count($url)-2] == 'artiste') {
+    include "views/artiste.php";
+}
+
+
 include "views/footer.php";
 
 

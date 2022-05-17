@@ -3,24 +3,21 @@
     
     // partie de connexion sur serveur de wendy 
     
-    $serveur = 'sqletud.u-pem.fr';
-    $bdd = 'wendy.gervais_db';
+    // $serveur = 'sqletud.u-pem.fr';
+    // $bdd = 'wendy.gervais_db';
 
-    $user = "wendy.gervais";
-    $pass = "1367";
+    // $user = "wendy.gervais";
+    // $pass = "1367";
 
-    // $serveur = "localhost";
-    // $bdd = "wendy.gervais_db";
+    $serveur = "localhost";
+    $bdd = "ARTW";
 
-    // $user = "root";
-    // $pass = "";
+    $user = "rom1";
+    $pass = "852456";
 
     // Connexion à la BDD
     $MaBase = new PDO('mysql:host='.$serveur.';dbname='.$bdd, $user, $pass);
     $MaBase->exec("SET NAMES UTF8");
-
-
-
 
 
     // Selection de toutes les oeuvres+domaine+format
@@ -97,6 +94,17 @@
 
     
 
+    // Selection de toutes les personnes+leurs rôles+oeuvres
+    $requeteFullPersonnes = 'SELECT * FROM personnes LEFT JOIN remplir_role ON personnes.id_personne = remplir_role.id_personne LEFT JOIN rôles ON remplir_role.id_rôle = rôles.id_rôle LEFT JOIN oeuvres ON remplir_role.id_oeuvre = oeuvres.id_oeuvre';
+    
+    $PDOpersonnesF = $MaBase->query($requeteFullPersonnes);
+    $personnesF = [];
+    while($ligne = $PDOpersonnesF->fetch()){
+        array_push($personnesF, $ligne);
+    }
+    $PDOpersonnesF->closeCursor();
+
+
     // Selection de toutes les personnes
     $requetePersonnes = 'SELECT * FROM personnes';
     $PDOpersonnes = $MaBase->query($requetePersonnes);
@@ -105,7 +113,6 @@
         array_push($personnes, $ligne);
     }
     $PDOpersonnes->closeCursor();
-
 
 
     // Selection de tous les rôles
@@ -151,15 +158,21 @@
         
 
 
-    function getpersonnes(){
+    function getPersonnes(){
         global $personnes;
         return $personnes;
+    }
+
+    function getPersonnesandRoles(){
+        global $personnesF;
+        return $personnesF;
     }
 
     function getroles(){
         global $roles;
         return $roles;
     }
+
 
     function getlastid2(){
         global $id2;
