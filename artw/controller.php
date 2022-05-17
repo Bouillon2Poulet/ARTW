@@ -43,6 +43,56 @@
             }
             echo '</optgroup>';
         }
+
+        if ($n==4) {
+            echo '<optgroup label="Texte">';
+            for ($k=22; $k<=25; $k++) {
+                echo "<option value=$k>";
+                echo getformat()[$k-1]['nom_format'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+//
+        if ($n==5) {
+            echo '<optgroup label="Volume">';
+            for ($k=26; $k<=30; $k++) {
+                echo "<option value=$k>";
+                echo getformat()[$k-1]['nom_format'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+
+        if ($n==6) {
+            echo '<optgroup label="Performance">';
+            for ($k=31; $k<=34; $k++) {
+                echo "<option value=$k>";
+                echo getformat()[$k-1]['nom_format'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+
+        if ($n==7) {
+            echo '<optgroup label="Interactif">';
+            for ($k=35; $k<=37; $k++) {
+                echo "<option value=$k>";
+                echo getformat()[$k-1]['nom_format'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+
+        if ($n==8) {
+            echo '<optgroup label="Autre">';
+            for ($k=38; $k<=38; $k++) {
+                echo "<option value=$k>";
+                echo getformat()[$k-1]['nom_format'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
     }
 
     function addOeuvre($MaBase){
@@ -149,7 +199,7 @@
 
 
 
-    function listeRole($n){
+    function listeRoles($n){
         echo '<option value="">--Choisir un rôle--</option>' ;
 
         if ($n==1) {
@@ -164,7 +214,7 @@
        
         if ($n==2) {
             echo '<optgroup label="Audio">';
-            for ($k=7; $k<=11; $k++) {
+            for ($k=10; $k<=14; $k++) {
                 echo "<option value=$k>";
                 echo getroles()[$k-1]['rôle'];
                 echo"</option>";
@@ -174,7 +224,57 @@
             
         if ($n==3) {
             echo '<optgroup label="Image">';
-            for ($k=12; $k<=21; $k++) {
+            for ($k=15; $k<=18; $k++) {
+                echo "<option value=$k>";
+                echo getroles()[$k-1]['rôle'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+        ////////
+        if ($n==4) {
+            echo '<optgroup label="Texte">';
+            for ($k=19; $k<=19; $k++) {
+                echo "<option value=$k>";
+                echo getroles()[$k-1]['rôle'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+
+        if ($n==5) {
+            echo '<optgroup label="Volume">';
+            for ($k=20; $k<=20; $k++) {
+                echo "<option value=$k>";
+                echo getroles()[$k-1]['rôle'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+
+        if ($n==6) {
+            echo '<optgroup label="Perfomance">';
+            for ($k=21; $k<=23; $k++) {
+                echo "<option value=$k>";
+                echo getroles()[$k-1]['rôle'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+
+        if ($n==7) {
+            echo '<optgroup label="Interactif">';
+            for ($k=24; $k<=26; $k++) {
+                echo "<option value=$k>";
+                echo getroles()[$k-1]['rôle'];
+                echo"</option>";
+            }
+            echo '</optgroup>';
+        }
+
+        if ($n==8) {
+            echo '<optgroup label="Autre">';
+            for ($k=27; $k<=27; $k++) {
                 echo "<option value=$k>";
                 echo getroles()[$k-1]['rôle'];
                 echo"</option>";
@@ -182,4 +282,3 @@
             echo '</optgroup>';
         }
     }
-
