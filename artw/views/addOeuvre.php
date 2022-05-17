@@ -45,17 +45,27 @@
     </div><br>
 
     <div>
-        <label for="id_rôle">Rôles : </label>
+
+    <label for="id_personne">Artiste : </label>
+        <select id="id_personne" name="id_personne" required>
+            <?php
+                listePersonnes();
+            ?>
+        </select>
+
         <select id="id_rôle" name="id_rôle" required>
             <?php
                 $uri = $_SERVER['REQUEST_URI'];
                 $url = explode("=", $uri);
                 $d = $url[count($url)-1];
 
-                listeRole($d);
+                listeRoles($d);
             ?>
-        </select>
-    </div><br>
+        </select> <br>
+
+    </div>
+
+    <br>
 
     <div>
         <input type="submit" value="Enregistrer" class="ajout">

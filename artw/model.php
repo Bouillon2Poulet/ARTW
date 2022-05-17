@@ -2,22 +2,21 @@
 
     
     // partie de connexion sur serveur de wendy 
-    /*
+    
     $serveur = 'sqletud.u-pem.fr';
     $bdd = 'wendy.gervais_db';
 
     $user = "wendy.gervais";
-    $pass = "1367";*/
+    $pass = "1367";
 
-    $serveur = "localhost";
-    $bdd = "wendy.gervais_db";
+    // $serveur = "localhost";
+    // $bdd = "wendy.gervais_db";
 
-    $user = "root";
-    $pass = "";
+    // $user = "root";
+    // $pass = "";
 
     // Connexion à la BDD
     $MaBase = new PDO('mysql:host='.$serveur.';dbname='.$bdd, $user, $pass);
-
     $MaBase->exec("SET NAMES UTF8");
 
 
@@ -67,7 +66,8 @@
         array_push($id, $ligne);
     }
     $PDOid->closeCursor();
-    
+
+
 
 
     // Permet de récupérer les oeuvres pour les lister dans la page listeOeuvres
@@ -93,6 +93,8 @@
         global $id;
         return $id[0][0];
     }
+
+
     
 
     // Selection de toutes les personnes
@@ -116,6 +118,39 @@
     $PDOroles->closeCursor();
 
 
+    // Récupération de l'id de la dernière personne
+    $requeteid = 'SELECT MAX(id_personne) FROM personnes';
+    $PDOid2 = $MaBase->query($requeteid);
+    $id2 = [];
+    while($ligne = $PDOid2->fetch()){
+        array_push($id2, $ligne);
+    }
+    $PDOid->closeCursor();
+
+
+
+    function getNbOeuvre($n, $MaBase) {
+
+        $gn = "'".$n."'";
+
+        $requetenbo = 'SELECT COUNT(DISTINCT id_oeuvre) FROM remplir_role WHERE id_personne='.$gn;
+
+        $PDO = $MaBase->query($requetenbo);
+        $nb = [];
+        while($ligne = $PDO->fetch()){
+            array_push($nb, $ligne);
+        }
+        $PDO->closeCursor();
+
+        echo $nb[0][0];
+
+        global $nb;
+        return $nb[0][0];
+
+    }
+        
+
+
     function getpersonnes(){
         global $personnes;
         return $personnes;
@@ -126,5 +161,9 @@
         return $roles;
     }
 
+    function getlastid2(){
+        global $id2;
+        return $id2[0][0];
+    }
     
 ?>

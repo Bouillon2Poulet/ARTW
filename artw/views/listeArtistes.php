@@ -11,8 +11,41 @@
 
 <?php
 
+        // Début du tableau HTML des artistes
     
-    echo 'Liste des artistes...';
+        echo '<table>
+        <tr>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Nombre d\'oeuvres</th>
+        </tr>';
+    
+        foreach(getPersonnes() as $p) {
+            echo '<tr>';
+            echo '<td>';
+            echo '<a href="artiste/';
+            echo $p['id_personne'];
+            echo '">';
+            echo $p['prenom'];
+            echo "</a>";
+            echo '</td>';
+    
+            echo '<td>';
+            echo $p['nom'];
+            echo '</td>';
+    
+            echo '<td>';
+            getNbOeuvre($p['id_personne'], $MaBase);
+            echo '</td>';
+    
+            
+            echo '</tr>';
+        }
+     
+        echo '</table>';
+        
+        // Fin tableau HTML
+    
 
 
     ?>
