@@ -5,6 +5,6 @@ include "controller.php";
 
 Oeuvre ajoutée avec succès !
 
-<br>
+<br><br>
 
 <a href="../index.php/oeuvres"> <- Retour à la liste des oeuvres</a>

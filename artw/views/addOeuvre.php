@@ -40,7 +40,6 @@
             echo "Image représentant votre oeuvre (png ou jpg) : ";
             UploadImage(getlastid($MaBase)+1); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
         ?>
-        <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $poids_max; ?>">
         <input type="file" id="image" name="image">
     </div>
 
@@ -61,7 +60,7 @@
                 ?>
             </select>
 
-            <select id="id_rôle" name="id_rôle" required>
+            <select id="id_role" name="id_role" required>
                 <?php
                     $uri = $_SERVER['REQUEST_URI'];
                     $url = explode("=", $uri);

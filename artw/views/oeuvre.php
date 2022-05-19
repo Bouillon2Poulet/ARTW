@@ -3,21 +3,23 @@
     include "controller.php";
 
     foreach(getOeuvres($MaBase) as $o) {
+
         if ($o['id_oeuvre'] == $dest) {
-            echo "Titre : ";
-            echo $o['titre'];
+
+            echo "Titre : ".  $o['titre'];
+
             echo "<br>";
-            echo " Domaine : ";
-            echo $o['nom_domaine'];
+
+            echo " Domaine : ". $o['nom_domaine'];
+
             echo "<br>";
-            echo "Format : ";
-            echo $o['nom_format'];
+
+            echo "Format : " . $o['nom_format'];
+
             echo "<br>";
             echo "<br>";
 
-
-            echo "Description : ";
-            echo $o['description'];
+            echo "Description : ". $o['description'];
 
             echo "<br>";
             echo "<br>";

@@ -9,12 +9,15 @@
 
     $serveur = "localhost";
     $bdd = "ARTW";
-    $user = "wendy";
-    $pass = "1367";
 
+    // $user = "wendy";
+    // $pass = "1367";
 
     // $user = "rom1";
     // $pass = "852456";
+
+    $user = "root";
+    $pass = "";
 
     
     $MaBase = new PDO('mysql:host='.$serveur.';dbname='.$bdd, $user, $pass);
@@ -65,9 +68,9 @@
     }
 
 
-    // Selection de toutes les personnes+leurs rôles+oeuvres
+    // Selection de toutes les personnes+leurs roles+oeuvres
     function getPersonnesAndRoles($MaBase) {
-        $requeteFullPersonnes = 'SELECT * FROM personnes LEFT JOIN remplir_role ON personnes.id_personne = remplir_role.id_personne LEFT JOIN rôles ON remplir_role.id_rôle = rôles.id_rôle LEFT JOIN oeuvres ON remplir_role.id_oeuvre = oeuvres.id_oeuvre';
+        $requeteFullPersonnes = 'SELECT * FROM personnes LEFT JOIN remplir_role ON personnes.id_personne = remplir_role.id_personne LEFT JOIN roles ON remplir_role.id_role = roles.id_role LEFT JOIN oeuvres ON remplir_role.id_oeuvre = oeuvres.id_oeuvre';
         return requeteInTab($requeteFullPersonnes, $MaBase);
     }
 
@@ -79,16 +82,15 @@
         return requeteInTab($requetenbo, $MaBase)[0][0];
     }
         
-
     // récup toutes les personnes
     function getpersonnes($MaBase){
         $requetePersonnes = 'SELECT * FROM personnes';
         return requeteInTab($requetePersonnes,$MaBase); 
     }
 
-    // récup tous les rôles
+    // récup tous les roles
     function getroles($MaBase){
-        $requeteRoles = 'SELECT * FROM rôles';
+        $requeteRoles = 'SELECT * FROM roles';
         return  requeteInTab($requeteRoles,$MaBase);
     }
 
