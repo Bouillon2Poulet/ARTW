@@ -40,8 +40,9 @@
 
 
 
+//////////////////////////////////////
+// Requetes //
 
-    
 
     // récup les oeuvres
     function getOeuvres($MaBase){
@@ -50,23 +51,22 @@
     }
     
     // récup les domaines 
-    function getdom($MaBase){
+    function getDomaines($MaBase){
         $requetedom = 'SELECT * FROM domaines';
         return requeteInTab($requetedom,$MaBase);
     }
 
     // récup tous les formats
-    function getformat($MaBase){
+    function getFormats($MaBase){
         $requetef = 'SELECT id_format, nom_format FROM formats';
         return requeteInTab($requetef,$MaBase);
     }
 
     // récupère le dernier id_oeuvre
-    function getlastid($MaBase){
+    function getLastIdOeuvre($MaBase){
         $requeteid = 'SELECT MAX(id_oeuvre) FROM oeuvres';
         return requeteInTab($requeteid,$MaBase)[0][0];
     }
-
 
     // Selection de toutes les personnes+leurs roles+oeuvres
     function getPersonnesAndRoles($MaBase) {
@@ -74,28 +74,27 @@
         return requeteInTab($requeteFullPersonnes, $MaBase);
     }
 
-
     // récup le nombre d'oeuvres dans lesquels la personne $n a participé
-    function getNbOeuvre($n, $MaBase) {
+    function getNbOeuvresDePersonne($n, $MaBase) {
         $gn = "'".$n."'";
         $requetenbo = 'SELECT COUNT(DISTINCT id_oeuvre) FROM remplir_role WHERE id_personne='.$gn;
         return requeteInTab($requetenbo, $MaBase)[0][0];
     }
         
     // récup toutes les personnes
-    function getpersonnes($MaBase){
+    function getPersonnes($MaBase){
         $requetePersonnes = 'SELECT * FROM personnes';
         return requeteInTab($requetePersonnes,$MaBase); 
     }
 
     // récup tous les roles
-    function getroles($MaBase){
+    function getRoles($MaBase){
         $requeteRoles = 'SELECT * FROM roles';
         return  requeteInTab($requeteRoles,$MaBase);
     }
 
     // récup l'id de la dernière personne
-    function getlastid2($MaBase){
+    function getLastIdPersonne($MaBase){
         $requeteid2 = 'SELECT MAX(id_personne) FROM personnes';
         return requeteInTab($requeteid2,$MaBase)[0][0];
     }

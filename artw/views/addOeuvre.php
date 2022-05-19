@@ -38,7 +38,7 @@
     <div>
         <?php
             echo "Image représentant votre oeuvre (png ou jpg) : ";
-            UploadImage(getlastid($MaBase)+1); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
+            UploadImage(getLastIdOeuvre($MaBase)+1); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
         ?>
         <input type="file" id="image" name="image">
     </div>
