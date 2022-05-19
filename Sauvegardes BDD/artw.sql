@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 17 mai 2022 à 08:01
+-- Généré le : jeu. 19 mai 2022 à 20:13
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `wendy.gervais_db`
+-- Base de données : `artw`
 --
 
 -- --------------------------------------------------------
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `oeuvres` (
   `url` text NOT NULL,
   `id_format` int(11) NOT NULL,
   PRIMARY KEY (`id_oeuvre`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `oeuvres`
@@ -177,7 +177,7 @@ INSERT INTO `personnes` (`id_personne`, `nom`, `prenom`, `photo`, `facebook`, `i
 DROP TABLE IF EXISTS `remplir_role`;
 CREATE TABLE IF NOT EXISTS `remplir_role` (
   `id_personne` int(11) NOT NULL,
-  `id_rôle` int(11) NOT NULL,
+  `id_role` int(11) NOT NULL,
   `id_oeuvre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `remplir_role` (
 -- Déchargement des données de la table `remplir_role`
 --
 
-INSERT INTO `remplir_role` (`id_personne`, `id_rôle`, `id_oeuvre`) VALUES
+INSERT INTO `remplir_role` (`id_personne`, `id_role`, `id_oeuvre`) VALUES
 (1, 5, 1),
 (3, 5, 1),
 (4, 1, 1),
@@ -194,7 +194,8 @@ INSERT INTO `remplir_role` (`id_personne`, `id_rôle`, `id_oeuvre`) VALUES
 (7, 1, 1),
 (4, 4, 1),
 (5, 4, 1),
-(7, 4, 1);
+(7, 4, 1),
+(2, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -204,17 +205,17 @@ INSERT INTO `remplir_role` (`id_personne`, `id_rôle`, `id_oeuvre`) VALUES
 
 DROP TABLE IF EXISTS `rôles`;
 CREATE TABLE IF NOT EXISTS `rôles` (
-  `id_rôle` int(11) NOT NULL AUTO_INCREMENT,
-  `rôle` text NOT NULL,
+  `id_role` int(11) NOT NULL AUTO_INCREMENT,
+  `role` text NOT NULL,
   `id_domaine` int(11) NOT NULL,
-  PRIMARY KEY (`id_rôle`)
+  PRIMARY KEY (`id_role`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `rôles`
 --
 
-INSERT INTO `rôles` (`id_rôle`, `rôle`, `id_domaine`) VALUES
+INSERT INTO `rôles` (`id_role`, `role`, `id_domaine`) VALUES
 (1, 'Réalisateur', 1),
 (2, 'Acteur', 1),
 (3, 'Son', 1),
