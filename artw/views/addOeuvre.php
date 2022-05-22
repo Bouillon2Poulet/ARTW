@@ -62,10 +62,6 @@
 
             <select id="id_role" name="id_role" required>
                 <?php
-                    $uri = $_SERVER['REQUEST_URI'];
-                    $url = explode("=", $uri);
-                    $d = $url[count($url)-1];
-
                     listeRoles($MaBase, $d);
                 ?>
             </select> 

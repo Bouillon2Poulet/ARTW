@@ -90,7 +90,7 @@
     // récup tous les roles
     function getRoles($MaBase){
         $requeteRoles = 'SELECT * FROM roles';
-        return  requeteInTab($requeteRoles,$MaBase);
+        return requeteInTab($requeteRoles,$MaBase);
     }
 
     // récup l'id de la dernière personne

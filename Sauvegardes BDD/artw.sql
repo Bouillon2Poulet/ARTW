@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 19 mai 2022 à 20:13
+-- Généré le : dim. 22 mai 2022 à 10:27
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -200,11 +200,11 @@ INSERT INTO `remplir_role` (`id_personne`, `id_role`, `id_oeuvre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `rôles`
+-- Structure de la table `roles`
 --
 
-DROP TABLE IF EXISTS `rôles`;
-CREATE TABLE IF NOT EXISTS `rôles` (
+DROP TABLE IF EXISTS `roles`;
+CREATE TABLE IF NOT EXISTS `roles` (
   `id_role` int(11) NOT NULL AUTO_INCREMENT,
   `role` text NOT NULL,
   `id_domaine` int(11) NOT NULL,
@@ -212,10 +212,10 @@ CREATE TABLE IF NOT EXISTS `rôles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `rôles`
+-- Déchargement des données de la table `roles`
 --
 
-INSERT INTO `rôles` (`id_role`, `role`, `id_domaine`) VALUES
+INSERT INTO `roles` (`id_role`, `role`, `id_domaine`) VALUES
 (1, 'Réalisateur', 1),
 (2, 'Acteur', 1),
 (3, 'Son', 1),
