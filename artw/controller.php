@@ -278,6 +278,7 @@
 
             $req = "INSERT INTO oeuvres(id_oeuvre, titre, description, image, url, id_format) VALUES (NULL," . $gtitre . "," . $gdesc . "," . $gimg . "," . $glien . "," . $gformat . ")";
             $MaBase->exec($req);
+            
 
             $idp = $_POST['id_personne'];
             $idr = $_POST['id_role'];

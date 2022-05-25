@@ -14,7 +14,6 @@
 
     echo '<table>
     <tr>
-    <th>Prénom</th>
     <th>Nom</th>
     <th>Nombre d\'oeuvres</th>
     </tr>';
@@ -26,11 +25,10 @@
         echo $p['id_personne'];
         echo '">';
         echo $p['prenom'];
-        echo "</a>";
-        echo '</td>';
-
-        echo '<td>';
+        echo ' ';
         echo $p['nom'];
+        echo "</a>";
+
         echo '</td>';
 
         echo '<td>';

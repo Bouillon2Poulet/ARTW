@@ -6,6 +6,9 @@
 
         if ($o['id_oeuvre'] == $dest) {
 
+            echo "Oeuvre <br>";
+            echo "<br>";
+
             echo "Titre : ".  $o['titre'];
 
             echo "<br>";
@@ -34,6 +37,13 @@
 
 
             echo " <img class='imgOeuv' alt='Image oeuvre' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/". $o['image']."'>";
+
+            echo "<br>";
+            echo "<br>";
+
+            echo "Artistes ayant participé <br>";
+            echo "<br>";
+
 
 
 

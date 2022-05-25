@@ -52,21 +52,73 @@
     
     <br>
 
-    <div>
-        <label for="id_personne">Artiste : </label>
-            <select id="id_personne" name="id_personne" required>
-                <?php
-                    listePersonnes($MaBase);
-                ?>
-            </select>
 
-            <select id="id_role" name="id_role" required>
-                <?php
-                    listeRoles($MaBase, $d);
-                ?>
-            </select> 
+
+    <?php
+
+        echo '<div id="f0">
+            <label for="id_personne">Artiste 1 : </label>
+                <select id="id_personne" name="id_personne" required>';
+                listePersonnes($MaBase);
+        echo  "</select>";
+
+        echo '<select id="id_role" name="id_role" required>';
+                listeRoles($MaBase, $d);
+        echo "</select>";
+        
+        echo '<button onclick="addligne(0)">+ </button>' ;
+        
+        echo "</div>";
+        
+    ?>
+
+    <script>
+        function insertAfter(newNode, existingNode) {
+            existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+        }
+
+        // quand je clique
+        function nouvelleligne() {
+
+            const f1 = document.createElement("div");
+            f1.id = "f1";
+            insertAfter(f1, document.getElementById("f0"));
+
+            a1 = '<label for="id_personne">Artiste : </label>';
+            a2 =  '<select id="id_personne" name="id_personne" >' +'<?php listePersonnes($MaBase) ?>'+ '</select>';
+            a3 =  '<select id="id_role" name="id_role" >' +'<?php listeRoles($MaBase, $d); ?>'+ '</select>';
+
+            b = '<button onclick="nouvelleligne()">+ </button>';
+            document.getElementById("f1").innerHTML = a1+a2+a3+b;
             
-    </div>
+        }
+        
+
+
+        // quand je clique
+        function addligne(n) {
+            m = n+1;
+
+            const fnp1 = document.createElement("div");
+            fnp1.id = "f" + m;
+            fnid = "f" + n;
+
+            insertAfter(fnp1, document.getElementById(fnid));
+
+            a1 = '<label for="id_personne">Artiste ' + (m+1) + ' : </label>';
+            a2 =  '<select id="id_personne" name="id_personne" >' +'<?php listePersonnes($MaBase) ?>'+ '</select>';
+            a3 =  '<select id="id_role" name="id_role" >' +'<?php listeRoles($MaBase, $d); ?>'+ '</select>';
+       
+
+            b = '<button onclick="addligne('+ m + ')">' + '+ </button>';
+
+            document.getElementById(fnp1.id).innerHTML = a1+a2+a3+b;
+            
+        }
+        
+
+    </script>
+
 
     <br>
     <br>
