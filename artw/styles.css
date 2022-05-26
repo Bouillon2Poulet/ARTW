@@ -23,28 +23,31 @@ a:hover{
     transition-duration: 0.5s;
 }
 
+
 .label {
     color: blueviolet;
     font-weight:bold;
 }
 
-.ajout {
+
+ .ajout {
     color:white;
     background-color: rgb(93, 211, 148);
     text-decoration: none;
     padding: 10px 20px;
     transition-duration: 0.5s;
-
-}
+} 
 
 .ajout:hover {
     color:white;
-    background-color: rgb(93, 211, 122);
-    text-shadow: white 1px 0 10px;
+    background-color: rgb(159, 243, 180);
+    text-shadow: rgb(95, 90, 90) 1px 0 10px;
     transition-duration: 1s;
-    box-shadow: 6px 6px 2px 1px rgb(149, 245, 173);
+    /* box-shadow: 6px 6px 2px 1px rgb(149, 245, 173); */
+} 
 
-}
+
+
 
 .sup {
     color:lightcoral;
@@ -79,6 +82,7 @@ textarea {
     float:left;
     width:50%;
 }
+
 .blocArtistes {
     margin-left:10%   
 }

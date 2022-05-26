@@ -115,7 +115,7 @@
     <br>
 
     <div>
-        <input type="submit" value="Enregistrer" class="ajout">
+        <input type="submit" value="Enregistrer" class="bouton">
     </div>
 
 </form>

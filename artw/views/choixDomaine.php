@@ -13,9 +13,9 @@
                 listeDomaines($MaBase);
             ?>
         </select>
+        
+    <input type="submit" value="Confirmer" class="bouton">
     </div>
-<br>
-    <input type="submit" value="Confirmer" class="ajout">
 
 
 </form>
