@@ -98,5 +98,10 @@
         $requeteid2 = 'SELECT MAX(id_personne) FROM personnes';
         return requeteInTab($requeteid2,$MaBase)[0][0];
     }
+
+    function getRolesdeOeuvreN($n, $MaBase) {
+        $req = 'SELECT personnes.id_personne, prenom, nom, role FROM personnes JOIN remplir_role ON personnes.id_personne=remplir_role.id_personne JOIN roles ON roles.id_role = remplir_role.id_role WHERE remplir_role.id_oeuvre='.$n;
+        return requeteInTab($req,$MaBase);
+    }
     
 ?>

@@ -2,12 +2,13 @@
 <?php 
     include "controller.php";
 
+
     foreach(getOeuvres($MaBase) as $o) {
 
         if ($o['id_oeuvre'] == $dest) {
 
-            echo "Oeuvre <br>";
-            echo "<br>";
+            echo '<div class="blocOeuvre">';
+            echo "<h2>Oeuvre</h2> ";
 
             echo "Titre : ".  $o['titre'];
 
@@ -40,9 +41,29 @@
 
             echo "<br>";
             echo "<br>";
+            echo '<a href="../../index.php/oeuvres"> <- Retour à la liste des oeuvres</a>';
 
-            echo "Artistes ayant participé <br>";
-            echo "<br>";
+            echo "</div>";
+
+            echo '<div class="blocArtistes">';
+
+            echo "<h2>Artiste(s) ayant participé</h2>";
+
+            foreach(getRolesdeOeuvreN($dest, $MaBase) as $p) {
+                echo '<a href="../artiste/';
+                echo $p['id_personne'];
+                echo '">'; 
+                echo $p['prenom'].' '. $p['nom'] .'</a>';
+                echo' ('.$p['role'].')';
+                echo "<br>";
+            }
+            echo "</div>";
+
+    
+            
+
+
+
 
 
 
@@ -55,5 +76,4 @@
 <br>
 <br>
 
-<a href="../../index.php/oeuvres"> <- Retour à la liste des oeuvres</a>
 

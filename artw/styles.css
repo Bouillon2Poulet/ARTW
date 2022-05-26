@@ -23,6 +23,11 @@ a:hover{
     transition-duration: 0.5s;
 }
 
+.label {
+    color: blueviolet;
+    font-weight:bold;
+}
+
 .ajout {
     color:white;
     background-color: rgb(93, 211, 148);
@@ -66,4 +71,14 @@ textarea {
 .imgOeuv {
     width:30vw;
 
+}
+
+
+.blocOeuvre {
+    margin-left: 20px;
+    float:left;
+    width:50%;
+}
+.blocArtistes {
+    margin-left:10%   
 }

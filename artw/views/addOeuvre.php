@@ -5,23 +5,25 @@
 <!-- Formulaire d'ajout -->
 
 <form action="addOeuvreConfirm" method="post" enctype="multipart/form-data">
-    
+
+<h2> Oeuvre</h2>
+
     <div>
-        <label for="titre">Titre : </label>
+        <label for="titre" class="label">Titre </label><br>
         <input type="text" name="titre" id="titre" required>
     </div>
     
     <br>
 
     <div>
-        <label for="desc">Description : </label>
+        <label for="desc" class="label">Description </label> <br>
         <textarea id="desc" name="desc"></textarea>
     </div>
     
     <br>
 
     <div>
-        <label for="id_format">Format : </label>
+        <label for="id_format" class="label">Format </label> <br>
         <select id="id_format" name="id_format" required>
             <?php
                 $uri = $_SERVER['REQUEST_URI'];
@@ -36,8 +38,8 @@
     <br>
 
     <div>
+        <span class ="label">Image d'illustration (png ou jpg) </span><br>
         <?php
-            echo "Image représentant votre oeuvre (png ou jpg) : ";
             UploadImage(getLastIdOeuvre($MaBase)+1); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
         ?>
         <input type="file" id="image" name="image">
@@ -46,77 +48,66 @@
     <br>
 
     <div>
-        <label for="lien">Lien pour consulter le projet : </label>
+        <label for="lien" class="label">Lien pour consulter le projet </label> <br>
         <input type="text" name="lien" id="lien">
     </div>
     
     <br>
 
-
+    <h2>Artiste(s) ayant participé</h2>
 
     <?php
 
         echo '<div id="f0">
-            <label for="id_personne">Artiste 1 : </label>
-                <select id="id_personne" name="id_personne" required>';
+            <label for="id_personne0" class="label">Artiste 1 : </label>
+                <select id="id_personne0" name="id_personne0" required>';
                 listePersonnes($MaBase);
         echo  "</select>";
 
-        echo '<select id="id_role" name="id_role" required>';
+        echo '<select id="id_role0" name="id_role0" required>';
                 listeRoles($MaBase, $d);
         echo "</select>";
         
-        echo '<button onclick="addligne(0)">+ </button>' ;
+        echo '<button id="b0" onclick="addligne(0)">+ </button>' ;
         
         echo "</div>";
         
     ?>
 
-    <script>
+
+    <script> // Script JS qui permet d'ajouter des champs Artistes avec +
         function insertAfter(newNode, existingNode) {
             existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
         }
 
-        // quand je clique
-        function nouvelleligne() {
-
-            const f1 = document.createElement("div");
-            f1.id = "f1";
-            insertAfter(f1, document.getElementById("f0"));
-
-            a1 = '<label for="id_personne">Artiste : </label>';
-            a2 =  '<select id="id_personne" name="id_personne" >' +'<?php listePersonnes($MaBase) ?>'+ '</select>';
-            a3 =  '<select id="id_role" name="id_role" >' +'<?php listeRoles($MaBase, $d); ?>'+ '</select>';
-
-            b = '<button onclick="nouvelleligne()">+ </button>';
-            document.getElementById("f1").innerHTML = a1+a2+a3+b;
-            
-        }
-        
-
-
-        // quand je clique
         function addligne(n) {
             m = n+1;
-
             const fnp1 = document.createElement("div");
             fnp1.id = "f" + m;
             fnid = "f" + n;
-
             insertAfter(fnp1, document.getElementById(fnid));
 
-            a1 = '<label for="id_personne">Artiste ' + (m+1) + ' : </label>';
-            a2 =  '<select id="id_personne" name="id_personne" >' +'<?php listePersonnes($MaBase) ?>'+ '</select>';
-            a3 =  '<select id="id_role" name="id_role" >' +'<?php listeRoles($MaBase, $d); ?>'+ '</select>';
-       
+            p = "id_personne"+m;
+            r = "id_role"+m;
 
-            b = '<button onclick="addligne('+ m + ')">' + '+ </button>';
 
+            // a1 = '<label for="id_personne">Artiste ' + (m+1) + ' : </label>';
+            // a2 =  '<select id="id_personne" name="id_personne" >' +'<?php listePersonnes($MaBase) ?>'+ '</select>';
+            // a3 =  '<select id="id_role" name="id_role" >' +'<?php listeRoles($MaBase, $d); ?>'+ '</select>';
+
+            a1 = '<label for="'+p+'" class="label">Artiste ' + (m+1) + ' : </label>';
+            a2 =  '<select id="'+p+'" name="'+p+'" >' +'<?php listePersonnes($MaBase) ?>'+ '</select>';
+            a3 =  '<select id="'+r+'" name="'+r+'" >' +'<?php listeRoles($MaBase, $d); ?>'+ '</select>';
+
+
+
+            b = '<button id="b'+m + '" onclick="addligne('+ m + ')">' + '+ </button>';
             document.getElementById(fnp1.id).innerHTML = a1+a2+a3+b;
-            
+            let bn = document.getElementById('b'+n);
+            bn.remove();
+
         }
         
-
     </script>
 
 

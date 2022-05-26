@@ -279,17 +279,36 @@
             $req = "INSERT INTO oeuvres(id_oeuvre, titre, description, image, url, id_format) VALUES (NULL," . $gtitre . "," . $gdesc . "," . $gimg . "," . $glien . "," . $gformat . ")";
             $MaBase->exec($req);
             
+            $idoeuvre = getLastIdOeuvre($MaBase);
+            $gido = "'" . $idoeuvre . "'";
 
-            $idp = $_POST['id_personne'];
-            $idr = $_POST['id_role'];
-            $idoeuvre = getLastIdOeuvre($MaBase)+1;
+
+            $idp = $_POST['id_personne0'];
+            $idr = $_POST['id_role0'];
 
             $gidp= "'" . $idp . "'";
             $gidr = "'" . $idr . "'";
-            $gido = "'" . $idoeuvre . "'";
 
             $reqrole = "INSERT INTO remplir_role(id_personne, id_role, id_oeuvre) VALUES (" . $gidp . "," . $gidr . "," . $gido .")";
             $MaBase->exec($reqrole);
+
+            $k=1;
+
+
+            for ($k=1; $_POST['id_personne'.$k]; $k++) {
+
+                $idp = $_POST['id_personne'.$k];
+                $idr = $_POST['id_role'.$k];
+    
+                $gidp= "'" . $idp . "'";
+                $gidr = "'" . $idr . "'";
+    
+                $reqrole = "INSERT INTO remplir_role(id_personne, id_role, id_oeuvre) VALUES (" . $gidp . "," . $gidr . "," . $gido .")";
+                $MaBase->exec($reqrole);
+            }
+
+
+
 
 
 

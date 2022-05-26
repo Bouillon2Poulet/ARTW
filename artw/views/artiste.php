@@ -3,12 +3,14 @@
 
     foreach(getPersonnes($MaBase) as $o) {
         if ($o['id_personne'] == $dest) {
-            echo " <img class='photoArtiste' alt='Photo artiste' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/". $o['image']."'>";
+            echo " <img class='photoArtiste' alt='Photo artiste' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/". $o['photo']."'>";
             echo "<br>";
 
             echo $o['prenom'] .' '.$o['nom'];
             echo "<br>";
-            echo "role(s) : ";
+            echo "<br>";
+            echo "Rôle(s) : ";
+            echo "<br>";
             echo "<ul>";
             foreach(getPersonnesAndRoles($MaBase) as $p)
             {
@@ -26,8 +28,6 @@
             echo "<br>";
             echo "<br>";
 
-            echo "<a target='_blank' href='". $o['url'] . "'>";
-            echo " Consulter le projet en cliquant ici ! </a> ";
 
 
 
@@ -35,7 +35,6 @@
             echo "<br>";
 
 
-            echo " <img class='imgOeuv' alt='Image oeuvre' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/". $o['image']."'>";
         }
     }
 ?>
