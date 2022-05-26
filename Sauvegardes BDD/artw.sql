@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 22 mai 2022 à 10:27
+-- Généré le : jeu. 26 mai 2022 à 16:39
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -121,19 +121,15 @@ CREATE TABLE IF NOT EXISTS `oeuvres` (
   `url` text NOT NULL,
   `id_format` int(11) NOT NULL,
   PRIMARY KEY (`id_oeuvre`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `oeuvres`
 --
 
 INSERT INTO `oeuvres` (`id_oeuvre`, `titre`, `description`, `image`, `url`, `id_format`) VALUES
-(1, 'Œ', 'Court-métrage IMAC 1', '1.png', 'https://www.youtube.com/watch?v=JlQN5H2ydi8', 1),
-(2, 'Azurites', '23H BD de 803Z', '2.png', 'https://23hbd.com/participants/2022/triste_temps/', 19),
-(3, 'Cartographie ISS', 'AA IMAC1', '3.png', '', 15),
-(4, 'Piskel', '', '4.png', '', 17),
-(5, 'Fleabustiers', 'Test de partage', '5.png', 'https://www.youtube.com/watch?v=x0krt2s1PJE', 7),
-(6, 'Intégrale Point', '', '6.png', '', 17);
+(1, 'OE', 'Court-métrage IMAC 1', '1.png', 'https://www.youtube.com/watch?v=JlQN5H2ydi8', 1),
+(2, '5M ETG', '', '2.png', '', 7);
 
 -- --------------------------------------------------------
 
@@ -186,16 +182,20 @@ CREATE TABLE IF NOT EXISTS `remplir_role` (
 --
 
 INSERT INTO `remplir_role` (`id_personne`, `id_role`, `id_oeuvre`) VALUES
+(4, 1, 1),
+(7, 1, 1),
 (1, 5, 1),
 (3, 5, 1),
-(4, 1, 1),
 (5, 3, 1),
 (6, 3, 1),
-(7, 1, 1),
 (4, 4, 1),
 (5, 4, 1),
 (7, 4, 1),
-(2, 1, 9);
+(4, 2, 1),
+(3, 11, 2),
+(1, 11, 2),
+(3, 10, 2),
+(1, 10, 2);
 
 -- --------------------------------------------------------
 
