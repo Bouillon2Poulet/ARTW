@@ -40,7 +40,7 @@
     <div>
         <span class ="label">Image d'illustration (png ou jpg) </span><br>
         <?php
-            UploadImage(getLastIdOeuvre($MaBase)+1); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
+            UploadImage(getLastIdOeuvre($MaBase)+1,'o'); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
         ?>
         <input type="file" id="image" name="image">
     </div>

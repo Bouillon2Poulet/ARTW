@@ -2,21 +2,21 @@
 
     // Connexion à la BDD
     
-    $serveur = 'sqletud.u-pem.fr';
-    $bdd = 'wendy.gervais_db';
-    $user = "wendy.gervais";
-    $pass = "1367";
+    // $serveur = 'sqletud.u-pem.fr';
+    // $bdd = 'wendy.gervais_db';
+    // $user = "wendy.gervais";
+    // $pass = "1367";
 
     $serveur = "localhost";
     $bdd = "ARTW";
-    $user = "root";
-    $pass = "";
+    // $user = "root";
+    // $pass = "";
 
     // $user = "wendy";
     // $pass = "1367";
 
-    // $user = "rom1";
-    // $pass = "852456";
+    $user = "rom1";
+    $pass = "852456";
 
 
     

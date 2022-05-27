@@ -36,6 +36,11 @@
         echo getNbOeuvresDePersonne($p['id_personne'], $MaBase);
         echo '</td>';
 
+
+        echo '<td>';
+        echo '<a href="deleteArtiste/'.$p['id_personne'].'"'.'class="sup">Supprimer</a>';
+        echo '</td>';    
+
         
         echo '</tr>';
     }

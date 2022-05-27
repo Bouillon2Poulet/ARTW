@@ -65,7 +65,7 @@
     }
 
     // Suppression d'une oeuvre
-    if ( $url[count($url)-2] == 'delete') {
+    if ( $url[count($url)-2] == 'deleteOeuvre') {
         include "views/deleteOeuvre.php";
     }
 
@@ -75,12 +75,25 @@
     if ($dest=="artistes") {
         include "views/listeArtistes.php";
     }
+    // Ajouter une oeuvre
+    if ($dest=="addArtiste"){
+        include "views/addArtiste.php";
+    }
 
-    // Visualisation d'un artiste
+    // Confirmer l'ajout d'une oeuvre
+    if ($dest=="addArtisteConfirm") {
+        include "views/addArtisteConfirm.php";
+    }
+
+    // Suppression d'un.e artiste
+    if ( $url[count($url)-2] == 'deleteArtiste') {
+        include "views/deleteArtiste.php";
+    }
+
+    // Visualisation d'un.e artiste
     else if ( $url[count($url)-2] == 'artiste') {
         include "views/artiste.php";
     }
-
 
     
     include "views/footer.php";

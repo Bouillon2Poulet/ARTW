@@ -3,8 +3,8 @@
     
 
     // Uploade l'image nommée 'k' sur le serveur, et renvoie 'k.png'/'k.jpg'
-    function UploadImage($k) {
-
+    function UploadImage($k,$t) {
+        
         $poids_max = 50000000; // Poids max de l'image en octets (1Ko = 1024 octets) 
         $repertoire = 'uploads/'; // Repertoire d'upload 
         $extention = '';
@@ -41,7 +41,7 @@
                 if ($_FILES['image']['type'] == 'image/gif') { $extention = '.jpg'; } 
                 if ($_FILES['image']['type'] == 'image/gif') { $extention = '.png'; } 
                 if ($_FILES['image']['type'] == 'image/gif') { $extention = '.ico'; } 
-                $nom_image = $k.$extention; 
+                $nom_image = $t.$k.$extention; 
 
                 // On upload l'image sur le serveur
                 if (move_uploaded_file($_FILES['image']['tmp_name'], $repertoire.$nom_image)) { 
@@ -58,7 +58,7 @@
 
         } 
             
-        return $k.$extention;
+        return $t.$k.$extention;
 
     }
     
@@ -274,7 +274,7 @@
             $gformat = "'" . $format . "'";
             $glien = "'" . $lien . "'";
             
-            $gimg = "'" . UploadImage(getLastIdOeuvre($MaBase) + 1) . "'";
+            $gimg = "'" . UploadImage(getLastIdOeuvre($MaBase) + 1,'o') . "'";
 
             $req = "INSERT INTO oeuvres(id_oeuvre, titre, description, image, url, id_format) VALUES (NULL," . $gtitre . "," . $gdesc . "," . $gimg . "," . $glien . "," . $gformat . ")";
             $MaBase->exec($req);
@@ -335,3 +335,52 @@
 
 
     }
+
+    //Artistes
+
+    // Ajoute artiste depuis formulaire
+    function addArtiste($MaBase){
+        $method=strtolower($_SERVER['REQUEST_METHOD']);
+        if ($method == 'post') {
+
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $facebook = $_POST['facebook'];
+            $instagram = $_POST['instagram'];
+            $twitter = $_POST['twitter'];
+            $linkedin = $_POST['linkedin'];
+            $bandcamp = $_POST['bandcamp'];
+
+            $gnom = "'" . $nom . "'";
+            $gprenom = "'" . $prenom . "'";
+            $gfacebook = "'" . $facebook . "'";
+            $ginstagram = "'" . $instagram . "'";
+            $gtwitter = "'" . $twitter . "'";
+            $glinkedin = "'" . $linkedin . "'";
+            $gbandcamp = "'" . $bandcamp . "'";
+            
+            $gimg = "'" . UploadImage(getLastIdPersonne($MaBase) + 1,'a') . "'";
+            $req = "INSERT INTO personnes(id_personne,nom,prenom,photo,facebook,instagram,twitter,linkedin,bandcamp) VALUES (NULL,".$gnom.",".$gprenom.",".$gimg.",".$gfacebook.",".$ginstagram.",".$gtwitter.",".$glinkedin.",".$gbandcamp.")";
+            $MaBase->exec($req);
+
+        } else {
+            http_response_code(404);
+        }
+    }
+
+        // Delete l'artiste (numéro /get)
+        function deleteArtiste($MaBase){
+        
+            // Récupération id_oeuvre à supprimer dans l'URL
+            $uri = $_SERVER['REQUEST_URI'];
+            $url = explode("/", $uri);
+            $dest = $url[count($url)-1];
+    
+            // Suppression de l'artiste
+            $reqdel = 'DELETE FROM personnes WHERE id_personne='."'".$dest."'";
+            $MaBase->exec($reqdel);
+    
+            // Suppression des roles liés à l'oeuvre
+            $reqdelrole = 'DELETE FROM remplir_role WHERE id_personne='."'".$dest."'";
+            $MaBase->exec($reqdelrole);
+        }

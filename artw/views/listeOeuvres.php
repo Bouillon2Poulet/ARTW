@@ -45,9 +45,9 @@
         echo '</td>';
 
         echo '<td>';
-        echo '<a href="delete/'.$o['id_oeuvre'].'"'.'class="sup">Supprimer</a>';
+        echo '<a href="deleteOeuvre/'.$o['id_oeuvre'].'"'.'class="sup">Supprimer</a>';
+        echo '</td>';    
 
-        echo '</td>';       
         echo '</tr>';
     }
  
