@@ -1,25 +1,24 @@
 <?php 
 
-    // Connexion à la BDD
-    
+    // Répertoire images, Connexion à la BDD
+
+    // Mode hébergé
+    // $uploads = "https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/";
     // $serveur = 'sqletud.u-pem.fr';
     // $bdd = 'wendy.gervais_db';
     // $user = "wendy.gervais";
     // $pass = "1367";
 
+    // Mode local
+    $uploads = "/ARTW/artw/uploads/";
     $serveur = "localhost";
     $bdd = "ARTW";
     $user = "root";
     $pass = "";
-
-    // $user = "wendy";
-    // $pass = "1367";
-
     // $user = "rom1";
     // $pass = "852456";
 
-
-    
+    global $uploads;
     $MaBase = new PDO('mysql:host='.$serveur.';dbname='.$bdd, $user, $pass);
     $MaBase->exec("SET NAMES UTF8");
 

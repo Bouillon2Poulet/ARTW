@@ -2,4 +2,4 @@
 
     <br>
 
-    <a href="index.php/oeuvres">Accéder aux oeuvres -> </a>
+    <a href="index.php/oeuvres">Accéder aux oeuvres </a>

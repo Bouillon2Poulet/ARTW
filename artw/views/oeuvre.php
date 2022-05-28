@@ -37,12 +37,9 @@
             echo "<br>";
 
 
-            // echo " <img class='imgOeuv' alt='Image oeuvre' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/". $o['image']."'>";
-            echo " <img class='imgOeuv' alt='Image oeuvre' src='../../uploads/". $o['image']."'>";
+            echo '<img class="imgOeuv" alt=" ' .$o['titre'] . '" src="'.$uploads. $o['image'].'">';
 
             echo "<br>";
-            echo "<br>";
-            echo '<a href="../../index.php/oeuvres"> <- Retour à la liste des oeuvres</a>';
 
             echo "</div>";
 
@@ -59,6 +56,21 @@
                 echo "<br>";
             }
             echo "</div>";
+
+
+            echo "<br>";
+            echo "<br>";
+
+            echo "<h2>Actions</h2>";
+            echo '<a href="../editOeuvre/'.$o['id_oeuvre'].'"'.'>Éditer</a>';;
+            echo "<br>";
+            echo '<a href="../deleteOeuvre/'.$o['id_oeuvre'].'"'.'class="sup">Supprimer</a>';
+
+
+            echo "<br><br><br><br>";
+            echo '<a href="../../index.php/oeuvres"> Retour à la liste des oeuvres</a>';
+
+
 
     
             

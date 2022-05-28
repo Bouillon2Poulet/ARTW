@@ -1,10 +1,12 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.3rem;
     text-align: justify;
+    padding: 20px;
 }
 
 h1 {
-    color: blueviolet;
+    color: rgb(0, 0, 0);
 }
 
 h2 {
@@ -21,6 +23,16 @@ a {
 a:hover{
     color: rgb(206, 197, 255);  
     transition-duration: 0.5s;
+}
+
+th {
+    padding : 5px 10px;
+    text-align: left;
+}
+
+td {
+    padding : 10px;
+    text-align: left;
 }
 
 
@@ -75,6 +87,11 @@ textarea {
     width:30vw;
 
 }
+
+.imgOeuvListe {
+   width: 100px;
+}
+
 
 
 .blocOeuvre {

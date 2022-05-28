@@ -27,8 +27,7 @@ foreach(getOeuvres($MaBase) as $o) {
 
         echo '<span>Image :</span>';
 
-        // echo " <img class='imgOeuv' alt='Image oeuvre' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/". $o['image']."'>";
-        echo " <img class='imgOeuv' alt='Image oeuvre' src='../../uploads/". $o['image']."'>";
+        echo " <img class='imgOeuv' alt='Image oeuvre' src='".$uploads. $o['image']."'>";
         echo '<div>';
 
         echo "Remplacer l'image : ";

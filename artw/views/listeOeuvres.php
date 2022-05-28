@@ -21,6 +21,8 @@
 
     foreach(getOeuvres($MaBase) as $o) {
         echo '<tr>';
+
+
         echo '<td>';
         echo '<a href="oeuvre/';
         echo $o['id_oeuvre'];
@@ -38,14 +40,13 @@
         echo '</td>';
 
         echo '<td>';
-        echo '<a href="editOeuvre/'.$o['id_oeuvre'].'"'.'>Modifier</a>';;
+       
         echo '</td>';
 
         echo '<td>';
         echo '</td>';
 
         echo '<td>';
-        echo '<a href="deleteOeuvre/'.$o['id_oeuvre'].'"'.'class="sup">Supprimer</a>';
         echo '</td>';    
 
         echo '</tr>';
@@ -54,6 +55,8 @@
     echo '</table>';
     
     // Fin tableau HTML
+
+
 
 
     ?>
