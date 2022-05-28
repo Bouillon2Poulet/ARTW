@@ -62,6 +62,10 @@
 
     }
     
+
+
+
+
     // Liste déroulante des domaines
     function listeDomaines($MaBase) {
         for ($k=1; $k<=8; $k++) {
@@ -257,6 +261,11 @@
         
     }
 
+
+
+
+
+
     // Ajoute oeuvre depuis formulaire
     function addOeuvre($MaBase){
 
@@ -336,6 +345,43 @@
 
     }
 
+    function updateOeuvre($MaBase){
+        $method=strtolower($_SERVER['REQUEST_METHOD']);
+
+        if ($method == 'post') {
+
+
+            $uri = $_SERVER['REQUEST_URI'];
+            $url = explode("/", $uri);
+            $dest = $url[count($url)-1];
+
+            echo $dest;
+
+            $titre = $_POST['titre'];
+            $format = $_POST['id_format'];
+            $desc = $_POST['desc'];
+            $lien = $_POST['lien'];
+
+            $gtitre = "'" . $titre . "'";
+            $gdesc = "'" . $desc . "'";
+            $gformat = "'" . $format . "'";
+            $glien = "'" . $lien . "'";
+            $gimg = "'" . UploadImage($dest, 'o') . "'";
+
+            $req = "UPDATE oeuvres SET titre=".$gtitre.", description=".$gdesc.", image=".$gimg.", url=".$glien.", id_format=".$gformat." WHERE id_oeuvre=".$dest;
+            $MaBase->exec($req);
+
+        } else {
+            http_response_code(404);
+        }
+    }
+    
+
+
+
+
+
+
     //Artistes
 
     // Ajoute artiste depuis formulaire
@@ -368,19 +414,19 @@
         }
     }
 
-        // Delete l'artiste (numéro /get)
-        function deleteArtiste($MaBase){
-        
-            // Récupération id_oeuvre à supprimer dans l'URL
-            $uri = $_SERVER['REQUEST_URI'];
-            $url = explode("/", $uri);
-            $dest = $url[count($url)-1];
+    // Delete l'artiste (numéro /get)
+    function deleteArtiste($MaBase){
     
-            // Suppression de l'artiste
-            $reqdel = 'DELETE FROM personnes WHERE id_personne='."'".$dest."'";
-            $MaBase->exec($reqdel);
-    
-            // Suppression des roles liés à l'oeuvre
-            $reqdelrole = 'DELETE FROM remplir_role WHERE id_personne='."'".$dest."'";
-            $MaBase->exec($reqdelrole);
-        }
+        // Récupération id_oeuvre à supprimer dans l'URL
+        $uri = $_SERVER['REQUEST_URI'];
+        $url = explode("/", $uri);
+        $dest = $url[count($url)-1];
+
+        // Suppression de l'artiste
+        $reqdel = 'DELETE FROM personnes WHERE id_personne='."'".$dest."'";
+        $MaBase->exec($reqdel);
+
+        // Suppression des roles liés à l'oeuvre
+        $reqdelrole = 'DELETE FROM remplir_role WHERE id_personne='."'".$dest."'";
+        $MaBase->exec($reqdelrole);
+    }

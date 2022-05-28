@@ -69,6 +69,16 @@
         include "views/deleteOeuvre.php";
     }
 
+    // Modification d'une oeuvre
+    if ($url[count($url)-2] == 'editOeuvre') {
+        include "views/editOeuvre.php";
+    }
+
+    // Confirmation de la modification d'une oeuvre
+    if ($url[count($url)-2]=="editOeuvreConfirm") {
+        include "views/editOeuvreConfirm.php";
+    }
+
 
     // ARTISTES
     // Liste des artistes

@@ -37,7 +37,8 @@
             echo "<br>";
 
 
-            echo " <img class='imgOeuv' alt='Image oeuvre' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/". $o['image']."'>";
+            // echo " <img class='imgOeuv' alt='Image oeuvre' src='https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/". $o['image']."'>";
+            echo " <img class='imgOeuv' alt='Image oeuvre' src='../../uploads/". $o['image']."'>";
 
             echo "<br>";
             echo "<br>";

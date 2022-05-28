@@ -38,7 +38,7 @@
         echo '</td>';
 
         echo '<td>';
-        echo '<a href="">Modifier</a>';
+        echo '<a href="editOeuvre/'.$o['id_oeuvre'].'"'.'>Modifier</a>';;
         echo '</td>';
 
         echo '<td>';

@@ -9,14 +9,14 @@
 
     $serveur = "localhost";
     $bdd = "ARTW";
-    // $user = "root";
-    // $pass = "";
+    $user = "root";
+    $pass = "";
 
     // $user = "wendy";
     // $pass = "1367";
 
-    $user = "rom1";
-    $pass = "852456";
+    // $user = "rom1";
+    // $pass = "852456";
 
 
     
@@ -46,7 +46,7 @@
 
     // récup les oeuvres
     function getOeuvres($MaBase){
-        $requete = 'SELECT id_oeuvre, titre, description, image, url, domaines.nom_domaine, formats.nom_format FROM oeuvres JOIN formats ON oeuvres.id_format=formats.id_format JOIN domaines ON domaines.id_domaine=formats.id_domaine';
+        $requete = 'SELECT id_oeuvre, titre, description, image, url, domaines.nom_domaine, formats.nom_format, formats.id_format FROM oeuvres JOIN formats ON oeuvres.id_format=formats.id_format JOIN domaines ON domaines.id_domaine=formats.id_domaine';
         return requeteInTab($requete, $MaBase);
     }
     
@@ -102,6 +102,12 @@
     function getRolesdeOeuvreN($n, $MaBase) {
         $req = 'SELECT personnes.id_personne, prenom, nom, role FROM personnes JOIN remplir_role ON personnes.id_personne=remplir_role.id_personne JOIN roles ON roles.id_role = remplir_role.id_role WHERE remplir_role.id_oeuvre='.$n;
         return requeteInTab($req,$MaBase);
+    }
+
+
+    function getDomaineFromFormat($MaBase, $format){
+        $requetef = 'SELECT id_domaine FROM formats WHERE id_format='.$format;
+        return requeteInTab($requetef, $MaBase)[0][0];
     }
     
 ?>
