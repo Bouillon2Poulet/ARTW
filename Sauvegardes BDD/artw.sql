@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 26 mai 2022 à 16:39
+-- Généré le : sam. 28 mai 2022 à 22:36
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -121,15 +121,20 @@ CREATE TABLE IF NOT EXISTS `oeuvres` (
   `url` text NOT NULL,
   `id_format` int(11) NOT NULL,
   PRIMARY KEY (`id_oeuvre`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `oeuvres`
 --
 
 INSERT INTO `oeuvres` (`id_oeuvre`, `titre`, `description`, `image`, `url`, `id_format`) VALUES
-(1, 'OE', 'Court-métrage IMAC 1', '1.png', 'https://www.youtube.com/watch?v=JlQN5H2ydi8', 1),
-(2, '5M ETG', '', '2.png', '', 7);
+(1, 'OE', 'Court-métrage IMAC 1', 'o1.png', 'https://www.youtube.com/watch?v=JlQN5H2ydi8', 1),
+(2, '5M ETG', 'Zik ', 'o2.png', 'https://youtu.be/fSZmFKYWb-E', 7),
+(6, 'Motion Design Alt-J', '', 'o6.png', 'https://youtu.be/odpzhQvTt54', 3),
+(7, 'Azurites', '', 'o7.png', 'https://23hbd.com/participants/2022/triste_temps/', 19),
+(8, 'Cartographie ISS', '', 'o8.png', '', 15),
+(9, 'Numéro 10', '', 'o9.png', 'https://rom1-le-pain.itch.io/numero-10', 35),
+(10, 'Charlotte Was Alone', '', 'o10.png', '', 35);
 
 -- --------------------------------------------------------
 
@@ -149,20 +154,21 @@ CREATE TABLE IF NOT EXISTS `personnes` (
   `linkedin` text NOT NULL,
   `bandcamp` text NOT NULL,
   PRIMARY KEY (`id_personne`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `personnes`
 --
 
 INSERT INTO `personnes` (`id_personne`, `nom`, `prenom`, `photo`, `facebook`, `instagram`, `twitter`, `linkedin`, `bandcamp`) VALUES
-(1, 'Gervais', 'Wendy', '', 'Wendy Grv', 'commandant.grant', '', '', ''),
-(2, 'Dona', 'Axel', '', 'Axel Dona', '', '', 'Axel Dona', ''),
-(3, 'Debeaune', 'Tristan', '', 'Tristan Debeaune', 'tristandebeaune', '', '', ''),
-(4, 'Serres', 'Romain', '', 'Romain Serres', 'consomme2poyo', '', '', ''),
+(1, 'Gervais', 'Wendy', 'a1.jpg', 'Wendy Grv', 'commandant.grant', '', '', ''),
+(2, 'Dona', 'Axel', 'a2.png', 'Axel Dona', '', '', 'Axel Dona', ''),
+(3, 'Debeaune', 'Tristan', 'a3.png', 'Tristan Debeaune', 'tristandebeaune', '', '', ''),
+(4, 'Serres', 'Romain', 'a4.png', 'Romain Serres', 'consomme2poyo', '', '', ''),
 (5, 'Huet', 'Quentin', '', '', '', '', '', ''),
 (6, 'Massa', 'Elise', '', '', '', '', '', ''),
-(7, 'Leclercq', 'Mattéo', '', '', '', '', '', '');
+(7, 'Leclercq', 'Mattéo', '', '', '', '', '', ''),
+(11, 'Timsit', 'Silvère', 'a8', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -192,10 +198,27 @@ INSERT INTO `remplir_role` (`id_personne`, `id_role`, `id_oeuvre`) VALUES
 (5, 4, 1),
 (7, 4, 1),
 (4, 2, 1),
-(3, 11, 2),
 (1, 11, 2),
+(1, 10, 2),
+(3, 11, 2),
 (3, 10, 2),
-(1, 10, 2);
+(3, 8, 6),
+(1, 8, 6),
+(3, 16, 7),
+(1, 16, 7),
+(2, 16, 8),
+(1, 16, 8),
+(4, 25, 9),
+(4, 26, 9),
+(3, 25, 9),
+(1, 26, 9),
+(11, 26, 9),
+(1, 25, 10),
+(3, 25, 10),
+(5, 25, 10),
+(1, 26, 10),
+(3, 26, 10),
+(5, 26, 10);
 
 -- --------------------------------------------------------
 
@@ -209,38 +232,38 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `role` text NOT NULL,
   `id_domaine` int(11) NOT NULL,
   PRIMARY KEY (`id_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `roles`
 --
 
 INSERT INTO `roles` (`id_role`, `role`, `id_domaine`) VALUES
-(1, 'Réalisateur', 1),
-(2, 'Acteur', 1),
+(1, 'Réalisateur.rice', 1),
+(2, 'Acteur.rice', 1),
 (3, 'Son', 1),
-(4, 'Monteur', 1),
-(5, 'Cadreur', 1),
+(4, 'Monteur.euse', 1),
+(5, 'Cadreur.euse', 1),
 (6, 'Voix-off', 1),
-(7, 'Doubleur', 1),
-(8, 'Animateur', 1),
+(7, 'Doubleur.euse', 1),
+(8, 'Animateur.rice', 1),
 (9, 'FX', 1),
-(10, 'Mixeur', 2),
-(11, 'Compositeur', 2),
-(12, 'Ingénieur son', 2),
-(13, 'Chanteur', 2),
+(10, 'Mixage', 2),
+(11, 'Compositeur.rice', 2),
+(12, 'Ingénieur.e son', 2),
+(13, 'Chanteur.euse', 2),
 (14, 'Voix', 2),
 (15, 'Photographe', 3),
-(16, 'Illustrateur', 3),
-(17, 'Dessinateur', 3),
+(16, 'Illustrateur.rice', 3),
+(17, 'Dessinateur.rice', 3),
 (18, 'Peintre', 3),
-(19, 'Écrivain', 4),
-(20, 'Créateur', 5),
-(21, 'Performeur', 6),
+(19, 'Écrivain.e', 4),
+(20, 'Créateur.rice', 5),
+(21, 'Performeur.euse', 6),
 (22, 'Chorégraphe', 6),
-(23, 'Metteur en scène', 6),
-(24, 'Créateur.ice', 7),
-(25, 'Programmeur.e', 7),
+(23, 'Metteur.euse en scène', 6),
+(24, 'Créateur.rice', 7),
+(25, 'Programmeur.euse', 7),
 (26, 'Designer', 7),
 (27, 'Autre', 8);
 COMMIT;
