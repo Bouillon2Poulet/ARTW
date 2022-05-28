@@ -250,11 +250,11 @@
     function listePersonnes($MaBase){
         echo '<option value="">--Choisir un artiste--</option>' ;
 
-        for ($k=1; $k<=getLastIdPersonne($MaBase); $k++) {
-            echo "<option value=$k>";
-            echo getPersonnes($MaBase)[$k-1]['prenom'];
+        foreach (getPersonnes($MaBase) as $p) {
+            echo "<option value =".$p['id_personne'].">";
+            echo $p['prenom'];
             echo ' ';
-            echo getPersonnes($MaBase)[$k-1]['nom'];
+            echo $p['nom'];
             echo"</option>";
 
         }
@@ -342,6 +342,9 @@
         $reqdelrole = 'DELETE FROM remplir_role WHERE id_oeuvre='."'".$dest."'";
         $MaBase->exec($reqdelrole);
 
+        $reqinc = 'ALTER TABLE oeuvres AUTO_INCREMENT=0';
+        $MaBase->exec($reqinc);
+
 
     }
 
@@ -354,8 +357,6 @@
             $uri = $_SERVER['REQUEST_URI'];
             $url = explode("/", $uri);
             $dest = $url[count($url)-1];
-
-            echo $dest;
 
             $titre = $_POST['titre'];
             $format = $_POST['id_format'];
@@ -429,4 +430,7 @@
         // Suppression des roles liés à l'oeuvre
         $reqdelrole = 'DELETE FROM remplir_role WHERE id_personne='."'".$dest."'";
         $MaBase->exec($reqdelrole);
+
+        $reqinc = 'ALTER TABLE personnes AUTO_INCREMENT=0';
+        $MaBase->exec($reqinc);
     }

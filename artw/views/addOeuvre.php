@@ -56,6 +56,7 @@
 
     <h2>Artiste(s) ayant participé</h2>
 
+
     <?php
 
         echo '<div id="f0">
@@ -90,11 +91,6 @@
             p = "id_personne"+m;
             r = "id_role"+m;
 
-
-            // a1 = '<label for="id_personne">Artiste ' + (m+1) + ' : </label>';
-            // a2 =  '<select id="id_personne" name="id_personne" >' +'<?php listePersonnes($MaBase) ?>'+ '</select>';
-            // a3 =  '<select id="id_role" name="id_role" >' +'<?php listeRoles($MaBase, $d); ?>'+ '</select>';
-
             a1 = '<label for="'+p+'" class="label">Artiste ' + (m+1) + ' : </label>';
             a2 =  '<select id="'+p+'" name="'+p+'" >' +'<?php listePersonnes($MaBase) ?>'+ '</select>';
             a3 =  '<select id="'+r+'" name="'+r+'" >' +'<?php listeRoles($MaBase, $d); ?>'+ '</select>';
@@ -109,6 +105,9 @@
         }
         
     </script>
+    <br>
+    L'artiste n'existe pas encore sur ARTW ? <a href= "addArtiste">Ajoutez le/la ! </a>
+
 
 
     <br>

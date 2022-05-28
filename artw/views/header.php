@@ -43,7 +43,7 @@
 <h1>
     <!-- Logo -->
     <?php
-        echo '<a href="'.setCurrentFolder().'index.php"><img src="'.setCurrentFolder().'images/logo.png" alt="Accueil" class="logo"></a>';
+        echo '<a href="'.setCurrentFolder().'index.php"><img src="'.setCurrentFolder().'images/logo.png" alt="Accueil" class="logoSite"></a>';
     ?>
     
     <!-- Titre -->

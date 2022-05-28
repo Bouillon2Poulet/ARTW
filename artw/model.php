@@ -98,8 +98,8 @@
         return requeteInTab($requeteid2,$MaBase)[0][0];
     }
 
-    function getRolesdeOeuvreN($n, $MaBase) {
-        $req = 'SELECT personnes.id_personne, prenom, nom, role FROM personnes JOIN remplir_role ON personnes.id_personne=remplir_role.id_personne JOIN roles ON roles.id_role = remplir_role.id_role WHERE remplir_role.id_oeuvre='.$n;
+    function getPersonnesdeOeuvreN($n, $MaBase) {
+        $req = 'SELECT DISTINCT personnes.id_personne, prenom, nom FROM personnes JOIN remplir_role ON personnes.id_personne=remplir_role.id_personne WHERE remplir_role.id_oeuvre='.$n;
         return requeteInTab($req,$MaBase);
     }
 
@@ -107,6 +107,12 @@
     function getDomaineFromFormat($MaBase, $format){
         $requetef = 'SELECT id_domaine FROM formats WHERE id_format='.$format;
         return requeteInTab($requetef, $MaBase)[0][0];
+    }
+
+    
+    function getRolesdePersonneDdansOeuvreN($p, $n, $MaBase) {
+        $req = 'SELECT role FROM personnes JOIN remplir_role ON personnes.id_personne=remplir_role.id_personne JOIN roles ON roles.id_role = remplir_role.id_role WHERE remplir_role.id_oeuvre='.$n.' AND remplir_role.id_personne='.$p ;
+        return requeteInTab($req,$MaBase);
     }
     
 ?>

@@ -9,13 +9,26 @@
 <h2> Artiste</h2>
 
     <div>
+        <label for="prenom" class="label">Prénom </label>
+        <input type="text" name="prenom" id="prenom" required> <br><br>
         <label for="nom" class="label">Nom </label>
         <input type="text" name="nom" id="nom" required><br>
-        <label for="prenom" class="label">Prénom </label>
-        <input type="text" name="prenom" id="prenom" required>
+
     </div>
-    
+
+        
     <br>
+
+    <div>
+        <span class ="label">Photo (png ou jpg) </span><br>
+        <?php
+            UploadImage(getLastIdPersonne($MaBase)+1,'a'); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
+        ?>
+        <input type="file" id="image" name="image">
+    </div>
+
+<h2> Réseaux </h2>
+
 
     <div>
         <label for="facebook" class="label">Facebook </label>
@@ -51,14 +64,6 @@
     </div>
     
     <br>
-
-    <div>
-        <span class ="label">Photo (png ou jpg) </span><br>
-        <?php
-            UploadImage(getLastIdPersonne($MaBase)+1,'a'); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
-        ?>
-        <input type="file" id="image" name="image">
-    </div>
 
     <br>
 

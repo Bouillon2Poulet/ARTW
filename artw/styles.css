@@ -79,7 +79,7 @@ textarea {
     box-shadow: 1px 1px 1px #999;
 }
 
-.logo {
+.logoSite {
     width:8vw;
 }
 
@@ -92,14 +92,36 @@ textarea {
    width: 100px;
 }
 
+.photoArtiste {
+    width: 8vw;
+    border-radius:100px;
+}
 
 
-.blocOeuvre {
+.logo {
+    width: 1rem;
+
+}
+
+/* .blocOeuvre {
     margin-left: 20px;
     float:left;
     width:50%;
 }
 
 .blocArtistes {
-    margin-left:10%   
+    float:right;
+    margin-right: 30%;
 }
+
+
+
+.blocPersonne {
+    margin-left: 20px;
+    float:left;
+    width:50%;
+}
+
+.blocReseaux {
+    margin-left:10%   
+} */
