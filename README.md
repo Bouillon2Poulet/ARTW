@@ -20,10 +20,31 @@ importer la base de données (Sauvegarde BDD > artw.sql) dans phpmyadmin
     
   ```
   
-  Normalement, tous les liens sont en relatif, il suffit de placer le dossier artw à la racine du dossier serveur et d'accéder à ...../artw/index.php
+  Normalement, tous les liens sont en relatif, il suffit de placer le dossier artw à la racine du dossier serveur et d'accéder à localhost/artw/index.php
+  (ou localhost:port/artw/index.php)
 
 
+## Endpoints
 
+``` 
+artw/index.php
+
+artw/index.php/oeuvres
+artw/index.php/oeuvre/n
+artw/index.php/choixDomaine 
+artw/index.php/addOeuvre?domaine=n (GET)
+artw/index.php/addOeuvreConfirm (POST)
+artw/index.php/deleteOeuvre/n
+artw/index.php/editOeuvre/n
+artw/index.php/editOeuvreConfirm/n (POST)
+
+artw/index.php/artistes
+artw/index.php/artiste/n
+artw/index.php/addArtiste
+artw/index.php/addArtisteConfirm (POST)
+artw/index.php/deleteArtiste/n 
+
+```
 
 
 ## Pitch 
