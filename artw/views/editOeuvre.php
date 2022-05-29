@@ -7,35 +7,35 @@ foreach(getOeuvres($MaBase) as $o) {
 
         echo '<form action="../editOeuvreConfirm/'.$o['id_oeuvre'].'" method="post" enctype="multipart/form-data">';
 
-        echo '<div><label for="titre">Titre : </label><input type="text" name="titre" id="titre" value="';
+        echo '<div><label for="titre" class="label">Titre </label><br><input type="text" name="titre" id="titre" value="';
         echo $o['titre'];
         echo '"required></div><br>';
 
-        echo '<div><label for="desc">Description : </label><textarea id="desc" name="desc">';
+        echo '<div><label for="desc" class="label">Description </label><br><textarea id="desc" name="desc">';
         echo $o['description'];
         echo '</textarea></div><br>';
 
         $d = getDomaineFromFormat($MaBase, $o['id_format']);
     
 
-        echo '<div><label for="id_format">Format : </label><select id="id_format" name="id_format" required>';
+        echo '<div><label for="id_format" class="label">Format </label><br><select id="id_format" name="id_format" required>';
         listeFormats($MaBase, $d);
 
       
 
         echo '</select></div><br>';
 
-        echo '<span>Image :</span>';
+        echo '<span class="label">Image :</span><br>';
 
         echo " <img class='imgOeuv' alt='Image oeuvre' src='".$uploads. $o['image']."'>";
-        echo '<div>';
+        echo '<br><br><div>';
 
-        echo "Remplacer l'image : ";
+        echo '<span class="label">Remplacer l\'image </span><br>' ;
         UploadImage(getLastIdOeuvre($MaBase)+1, 'o'); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
         echo '<input type="hidden" name="MAX_FILE_SIZE" value="';
         echo '"><input type="file" id="image" name="image"></div><br>';
 
-        echo '<div><label for="lien">Lien pour consulter le projet : </label> <input type="text" name="lien" id="lien" value="';
+        echo '<div><label for="lien" class="label">Lien du projet  </label> <br><input type="text" name="lien" id="lien" value="';
         echo $o['url'].'"> </div><br>';
 
 
@@ -53,6 +53,6 @@ foreach(getOeuvres($MaBase) as $o) {
 </form>
 
 <br>
-<a href="../../index.php/oeuvres"> <- Retour à la liste des oeuvres</a>
+<a href="../../index.php/oeuvres"> Annuler et retourner à la liste des oeuvres</a>
 
 

@@ -7,4 +7,4 @@ include "controller.php";
 
 <p>Artiste mis.e à jour !</p>
 
-<a href="../../index.php/artistes"> <- Retour à la liste des artistes</a>
+<a href="../../index.php/artistes"> Retour </a>

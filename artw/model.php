@@ -45,7 +45,7 @@
 
     // récup les oeuvres
     function getOeuvres($MaBase){
-        $requete = 'SELECT id_oeuvre, titre, description, image, url, domaines.nom_domaine, formats.nom_format, formats.id_format FROM oeuvres JOIN formats ON oeuvres.id_format=formats.id_format JOIN domaines ON domaines.id_domaine=formats.id_domaine';
+        $requete = 'SELECT id_oeuvre, titre, description, image, url, domaines.nom_domaine, formats.nom_format, formats.id_format FROM oeuvres JOIN formats ON oeuvres.id_format=formats.id_format JOIN domaines ON domaines.id_domaine=formats.id_domaine ORDER BY nom_domaine ASC';
         return requeteInTab($requete, $MaBase);
     }
     
@@ -82,7 +82,7 @@
         
     // récup toutes les personnes
     function getPersonnes($MaBase){
-        $requetePersonnes = 'SELECT * FROM personnes';
+        $requetePersonnes = 'SELECT * FROM personnes ORDER BY prenom';
         return requeteInTab($requetePersonnes,$MaBase); 
     }
 
@@ -99,7 +99,7 @@
     }
 
     function getPersonnesdeOeuvreN($n, $MaBase) {
-        $req = 'SELECT DISTINCT personnes.id_personne, prenom, nom FROM personnes JOIN remplir_role ON personnes.id_personne=remplir_role.id_personne WHERE remplir_role.id_oeuvre='.$n;
+        $req = 'SELECT DISTINCT personnes.id_personne, prenom, nom, photo FROM personnes JOIN remplir_role ON personnes.id_personne=remplir_role.id_personne WHERE remplir_role.id_oeuvre='.$n;
         return requeteInTab($req,$MaBase);
     }
 

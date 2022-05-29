@@ -3,10 +3,9 @@
 ?>
 
 
-<!-- Bouton pour add une oeuvre -->
-<a href="../index.php/choixDomaine" class="ajout">Ajouter une oeuvre</a>
 
-<br><br><br>
+
+<h1>Oeuvres</h1>
 
 <?php
 
@@ -14,29 +13,32 @@
     
     echo '<table>
     <tr>
-    <th>Titre</th>
-    <th>Domaine</th>
-    <th>Format</th>
+    <th></th>
+    <th></th>
+    <th></th>
     </tr>';
 
     foreach(getOeuvres($MaBase) as $o) {
         echo '<tr>';
 
+        echo '<td>';
+        echo '<img class ="imageListe" src="'.$uploads.$o['image'].'">';
+        echo '</td>';
 
         echo '<td>';
+
         echo '<a href="oeuvre/';
         echo $o['id_oeuvre'];
         echo '">';
-        echo $o['titre'];
+        echo " <i> " .$o['titre']." </i> ";
         echo "</a>";
         echo '</td>';
 
         echo '<td>';
         echo $o['nom_domaine'];
-        echo '</td>';
-
-        echo '<td>';
+        echo ' (';
         echo $o['nom_format'];
+        echo ')';
         echo '</td>';
 
         echo '<td>';
@@ -50,16 +52,20 @@
         echo '</td>';    
 
         echo '</tr>';
+
+
+
     }
  
     echo '</table>';
     
     // Fin tableau HTML
 
-
-
-
     ?>
+
+<!-- Bouton pour add une oeuvre -->
+<br><br>
+<a href="../index.php/choixDomaine" class="ajout">Ajouter une oeuvre</a>
 
 
 

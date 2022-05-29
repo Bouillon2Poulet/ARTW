@@ -54,14 +54,12 @@
     <!-- Barre navigation -->
 
     <?php
-        echo '<nav><a href="'.setCurrentFolder().'index.php">Accueil </a> 
-        - <a href="'.setCurrentFolder().'index.php/oeuvres">Oeuvres </a> -
-        <a href="'.setCurrentFolder().'index.php/artistes">Artistes</a> -
-        <a target="_blank" href="https://github.com/Bouillon2Poulet/ARTW"> Lien du Git </a> 
+        echo '<nav><a href="'.setCurrentFolder().'index.php">🏠 ACCUEIL</a> 
+        - <a href="'.setCurrentFolder().'index.php/oeuvres">OEUVRES </a> -
+        <a href="'.setCurrentFolder().'index.php/artistes">ARTISTES</a> -
+        <a target="_blank" href="https://github.com/Bouillon2Poulet/ARTW">GIT</a> 
         </nav>'
     ?>
 
-<br><br>
 
-
-
+<br>

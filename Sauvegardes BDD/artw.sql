@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 28 mai 2022 à 22:36
+-- Généré le : dim. 29 mai 2022 à 11:49
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -154,21 +154,22 @@ CREATE TABLE IF NOT EXISTS `personnes` (
   `linkedin` text NOT NULL,
   `bandcamp` text NOT NULL,
   PRIMARY KEY (`id_personne`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `personnes`
 --
 
 INSERT INTO `personnes` (`id_personne`, `nom`, `prenom`, `photo`, `facebook`, `instagram`, `twitter`, `linkedin`, `bandcamp`) VALUES
-(1, 'Gervais', 'Wendy', 'a1.jpg', 'Wendy Grv', 'commandant.grant', '', '', ''),
+(1, 'Gervais', 'Wendy', 'a1.jpg', 'Wendy Grv', 'commandant.grant', 'wendykau', 'Wendy Gervais', ''),
 (2, 'Dona', 'Axel', 'a2.png', 'Axel Dona', '', '', 'Axel Dona', ''),
 (3, 'Debeaune', 'Tristan', 'a3.png', 'Tristan Debeaune', 'tristandebeaune', '', '', ''),
 (4, 'Serres', 'Romain', 'a4.png', 'Romain Serres', 'consomme2poyo', '', '', ''),
-(5, 'Huet', 'Quentin', '', '', '', '', '', ''),
-(6, 'Massa', 'Elise', '', '', '', '', '', ''),
-(7, 'Leclercq', 'Mattéo', '', '', '', '', '', ''),
-(11, 'Timsit', 'Silvère', 'a8', '', '', '', '', '');
+(5, 'Huet', 'Quentin', 'a.png', '', '', '', '', ''),
+(6, 'Massa', 'Elise', 'a.png', '', '', '', '', ''),
+(7, 'Leclercq', 'Mattéo', 'a7.png', 'Mattéo Leclercq', '', '', '', ''),
+(11, 'Timsit', 'Silvère', 'a.png', '', '', '', '', ''),
+(12, 'Strich', 'Emily-Rose', 'a.png', '', '', '', '', '');
 
 -- --------------------------------------------------------
 

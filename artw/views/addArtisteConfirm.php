@@ -7,4 +7,4 @@ Artiste ajouté.e avec succès !
 
 <br><br>
 
-<a href="../index.php/artistes"> <- Retour à la liste des artistes</a>
+<a href="../index.php/artistes"> Retour</a>

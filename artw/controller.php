@@ -27,7 +27,7 @@
 
             // S'il y a une erreur on l'affiche 
             if (isset($erreur)) { 
-                echo '' . $erreur . '<br><a href="javascript:history.back(1)">Retour</a>'; 
+                //echo '' . $erreur . '<br><a href="javascript:history.back(1)">Retour</a>'; 
             } 
 
             // Sinon on upload
@@ -58,7 +58,8 @@
 
         } 
             
-        return $t.$k.$extention;
+        if ($extention!='') return $t.$k.$extention;
+        else return $t.'.png';
 
     }
     
@@ -304,7 +305,7 @@
             $k=1;
 
 
-            for ($k=1; $_POST['id_personne'.$k]; $k++) {
+            for ($k=1; $_POST['id_personne'.$k]!=''; $k++) {
 
                 $idp = $_POST['id_personne'.$k];
                 $idr = $_POST['id_role'.$k];
@@ -367,7 +368,23 @@
             $gdesc = "'" . $desc . "'";
             $gformat = "'" . $format . "'";
             $glien = "'" . $lien . "'";
-            $gimg = "'" . UploadImage($dest, 'o') . "'";
+            
+
+            // Remplacement photo
+            foreach(getOeuvres($MaBase) as $o) {
+                if ($o['id_oeuvre'] == $dest) {
+
+                    // on initialise le champ à la valeur actuelle
+                    $img = $o['image'];
+
+                    // si on a effectivement uploadé une nouvelle image, on rechange le champ
+                    if (UploadImage($dest, 'o') != 'o.png') {
+                        $img = UploadImage($o['id_oeuvre'], 'o');
+                    }
+                }
+            }
+
+            $gimg = "'".$img."'";
 
             $req = "UPDATE oeuvres SET titre=".$gtitre.", description=".$gdesc.", image=".$gimg.", url=".$glien.", id_format=".$gformat." WHERE id_oeuvre=".$dest;
             $MaBase->exec($req);
@@ -441,8 +458,22 @@
                 $gtwitter = "'" . $twitter . "'";
                 $glinkedin = "'" . $linkedin . "'";
                 $gbandcamp = "'" . $bandcamp . "'";
-    
-                $req = "UPDATE personnes SET nom=".$gnom.", prenom=".$gprenom.", facebook=".$gfacebook.", instagram=".$ginstagram.", twitter=".$gtwitter.", linkedin=".$glinkedin.", bandcamp=".$gbandcamp." WHERE id_personne=" . $dest;
+
+                // Remplacement photo
+                foreach(getPersonnes($MaBase) as $o) {
+                    if ($o['id_personne'] == $dest) {
+                        // on initialise le champ à la valeur actuelle
+                        $img = $o['photo'];
+
+                        // si on a effectivement uploadé une nouvelle image, on rechange le champ
+                        if (UploadImage($dest, 'a') != 'a.png') {
+                            $img = UploadImage($o['id_personne'], 'a');
+                        }
+                    }
+                }
+                $gimg = "'".$img."'";
+
+                $req = "UPDATE personnes SET nom=".$gnom.", prenom=".$gprenom.", photo=".$gimg .", facebook=".$gfacebook.", instagram=".$ginstagram.", twitter=".$gtwitter.", linkedin=".$glinkedin.", bandcamp=".$gbandcamp." WHERE id_personne=" . $dest;
                 $MaBase->exec($req);
     
             } else {

@@ -3,16 +3,26 @@ body {
     font-size: 1.3rem;
     text-align: justify;
     padding: 20px;
+    margin-left: 50px;
+    background-color: #ffffff;
+    opacity: 1;
+    background-image:  linear-gradient(135deg, #f9f9f9 25%, transparent 25%), linear-gradient(225deg, #f9f9f9 25%, transparent 25%), linear-gradient(45deg, #f9f9f9 25%, transparent 25%), linear-gradient(315deg, #f9f9f9 25%, #ffffff 25%);
+    background-position:  40px 0, 40px 0, 0 0, 0 0;
+    background-size: 200px 200px;
+    background-repeat: repeat;
 }
 
+
+/* Titres */
 h1 {
     color: rgb(0, 0, 0);
 }
 
 h2 {
-    color: blueviolet;
+    color: rgb(0, 0, 0);
 }
 
+/* Liens */
 a {
     color: rgb(88, 59, 255);
     text-decoration: none;
@@ -23,24 +33,27 @@ a {
 a:hover{
     color: rgb(206, 197, 255);  
     transition-duration: 0.5s;
+    /* letter-spacing: 1px; */
 }
 
-th {
+
+/* Tableaux */
+ th {
     padding : 5px 10px;
     text-align: left;
 }
 
 td {
-    padding : 10px;
+    padding : 8px;
     text-align: left;
 }
 
 
+/* Formulaire et actions */
 .label {
-    color: blueviolet;
+    color:rgb(88, 59, 255);
     font-weight:bold;
 }
-
 
  .ajout {
     color:white;
@@ -58,34 +71,19 @@ td {
     /* box-shadow: 6px 6px 2px 1px rgb(149, 245, 173); */
 } 
 
-
-
-
 .sup {
     color:lightcoral;
 }
 
-textarea {
-    font-size: .8rem;
-    letter-spacing: 1px;
-}
 
-textarea {
-    padding: 10px;
-    max-width: 100%;
-    line-height: 1.5;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px #999;
-}
-
+/* Images */
 .logoSite {
     width:8vw;
 }
 
 .imgOeuv {
     width:30vw;
-
+    border-radius:10px;
 }
 
 .imgOeuvListe {
@@ -94,14 +92,42 @@ textarea {
 
 .photoArtiste {
     width: 8vw;
+    height: 8vw;
+    object-fit: cover;
     border-radius:100px;
 }
-
 
 .logo {
     width: 1rem;
 
 }
+
+.photoListe {
+    width: 2rem;
+    height: 2rem; 
+    object-fit: cover;
+    border-radius:50%;
+
+}
+
+.imageListe {
+    width: 7rem;
+    height: 1rem; 
+    object-fit: cover;
+    border:rgb(0, 0, 0) solid 1px;
+    border-radius: 2px;
+}
+
+.photoListeOeuvre {
+    width: 1.5rem;
+    height: 1.5rem; 
+    object-fit: cover;
+    border-radius:50%;
+}
+
+
+
+
 
 /* .blocOeuvre {
     margin-left: 20px;

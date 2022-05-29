@@ -3,11 +3,9 @@
 ?>
 
 
-<!-- Bouton pour add un artiste -->
-<a href="../index.php/addArtiste" class="ajout">Ajouter un artiste</a>
+<h1>Artistes</h1>
 
 
-<br><br><br>
 
 <?php
 
@@ -15,12 +13,18 @@
 
     echo '<table>
     <tr>
+    <th></th>
     <th>Nom</th>
     <th>Nombre d\'oeuvres</th>
     </tr>';
 
     foreach(getPersonnes($MaBase) as $p) {
         echo '<tr>';
+
+        echo '<td>';
+        echo '<img class ="photoListe" src="'.$uploads.$p['photo'].'">';
+
+
         echo '<td>';
         echo '<a href="artiste/';
         echo $p['id_personne'];
@@ -48,6 +52,12 @@
 
 
     ?>
+
+<!-- Bouton pour add un artiste -->
+<br><br>
+<a href="../index.php/addArtiste" class="ajout">Ajouter un artiste</a>
+
+
 
 
 

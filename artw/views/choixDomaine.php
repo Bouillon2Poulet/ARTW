@@ -2,12 +2,13 @@
     include "controller.php";
 ?>
 
+<h1> Ajouter une oeuvre</h1>
 
 <!-- Formulaire d'ajout -->
 <form action="addOeuvre" method="get" enctype="multipart/form-data">
 <!-- <form action="/add.php" method="post"> -->
     <div>
-        <label for="domaine">De quel domaine sera votre oeuvre ?</label>
+        <label for="domaine">De quel domaine sera votre oeuvre ?</label> <br><br>
         <select id="domaine" name="domaine" required>
             <?php
                 listeDomaines($MaBase);
@@ -21,4 +22,4 @@
 </form>
 
 <br>
-<a href="../index.php/oeuvres"> <- Retour à la liste des oeuvres</a>
+<a href="../index.php/oeuvres">Annuler et retourner à la liste des oeuvres</a>

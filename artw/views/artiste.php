@@ -44,8 +44,8 @@
                 echo "<br>";
                 echo "<h2>Actions</h2>";
                 
-                // echo '<a href="f"'.$o['id_personne'].'"'.'>Éditer</a>';;
                 echo '<a href="../editArtiste/'.$o['id_personne'].'"'.'class="">✎Éditer</a>';
+                echo "<br>";
                 echo '<a href="../deleteArtiste/'.$o['id_personne'].'"'.'class="sup">✖ Supprimer</a>';
 
                 
