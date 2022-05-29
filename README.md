@@ -5,23 +5,23 @@ LIEN HEBERGÉ : https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/index.php
 
 ## Lancement en local
 
-importer la base de données (Sauvegarde BDD > artw.sql) dans phpmyadmin
+importer la base de données (Sauvegarde BDD > artw.sql) dans phpmyadmin en tant que "ARTW"
 
 éventuellement modifier bdd, user, pass dans model.php (ligne 13) :
 ```    
-
+    $uploads = "/ARTW/artw/uploads/";
     $serveur = "localhost";  
-    
     $bdd = "ARTW";  
-    
     $user = "root";  
-    
     $pass = "";
     
   ```
   
-  Normalement, tous les liens sont en relatif, il suffit de placer le dossier artw à la racine du dossier serveur et d'accéder à localhost/artw/index.php
-  (ou localhost:port/artw/index.php)
+  Normalement, tous les liens sont en relatif, il suffit de placer le **repo** ARTW (!) à la racine du dossier serveur et d'accéder à localhost/ARTW/artw/index.php
+  (ou localhost:port/ARTW/artw/index.php) 
+  
+  il est aussi possible de placer uniquement le **dossier du site** ("artw") à la racine du serveur, il faut alors changer $uploads en "/artw/uploads/" et accéder à localhost/artw/index.php (ou localhost:port/artw/index.php) 
+  (il reste préférable de placer directement le repo "grand dossier", ARTW)
 
 
 ## Endpoints
