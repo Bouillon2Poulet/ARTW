@@ -3,19 +3,19 @@
     // Répertoire images et connexion à la BDD
 
         // Mode hébergé
-        // $uploads = "https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/";
-        // $serveur = 'sqletud.u-pem.fr';
-        // $bdd = 'wendy.gervais_db';
-        // $user = "wendy.gervais";
-        // $pass = "1367";
+        $uploads = "https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/";
+        $serveur = 'sqletud.u-pem.fr';
+        $bdd = 'wendy.gervais_db';
+        $user = "wendy.gervais";
+        $pass = "1367";
 
-        // // Mode local
-        $uploads = "/ARTW/artw/uploads/";
-        $serveur = "localhost";
-        $bdd = "ARTW";
-        $user = "root";
-        $pass = "";
-        // // $user = "rom1";
+        // //  Mode local
+        // $uploads = "/ARTW/artw/uploads/";
+        // $serveur = "localhost";
+        // $bdd = "ARTW";
+        // $user = "root";
+        // $pass = "";
+        // //  $user = "rom1";
         // // $pass = "852456";
 
         global $uploads;
