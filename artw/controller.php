@@ -415,6 +415,41 @@
         }
     }
 
+        // Mise à jour de l'artiste
+        function updateArtiste($MaBase)
+        {
+            $method = strtolower($_SERVER['REQUEST_METHOD']);
+    
+            if ($method == 'post') {
+    
+                $uri = $_SERVER['REQUEST_URI'];
+                $url = explode("/", $uri);
+                $dest = $url[count($url) - 1];
+    
+                $nom = $_POST['nom'];
+                $prenom = $_POST['prenom'];
+                $facebook = $_POST['facebook'];
+                $instagram = $_POST['instagram'];
+                $twitter = $_POST['twitter'];
+                $linkedin = $_POST['linkedin'];
+                $bandcamp = $_POST['bandcamp'];
+    
+                $gnom = "'" . $nom . "'";
+                $gprenom = "'" . $prenom . "'";
+                $gfacebook = "'" . $facebook . "'";
+                $ginstagram = "'" . $instagram . "'";
+                $gtwitter = "'" . $twitter . "'";
+                $glinkedin = "'" . $linkedin . "'";
+                $gbandcamp = "'" . $bandcamp . "'";
+    
+                $req = "UPDATE personnes SET nom=".$gnom.", prenom=".$gprenom.", facebook=".$gfacebook.", instagram=".$ginstagram.", twitter=".$gtwitter.", linkedin=".$glinkedin.", bandcamp=".$gbandcamp." WHERE id_personne=" . $dest;
+                $MaBase->exec($req);
+    
+            } else {
+                http_response_code(404);
+            }
+        }
+
     // Delete l'artiste (numéro /get)
     function deleteArtiste($MaBase){
     

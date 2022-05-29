@@ -60,12 +60,12 @@
     }
 
     // Visualisation d'une oeuvre
-    if ( $url[count($url)-2] == 'oeuvre') {
+    if ($url[count($url)-2] == 'oeuvre') {
         include "views/oeuvre.php";
     }
 
     // Suppression d'une oeuvre
-    if ( $url[count($url)-2] == 'deleteOeuvre') {
+    if ($url[count($url)-2] == 'deleteOeuvre') {
         include "views/deleteOeuvre.php";
     }
 
@@ -101,9 +101,21 @@
     }
 
     // Visualisation d'un.e artiste
-    else if ( $url[count($url)-2] == 'artiste') {
+    else if ($url[count($url)-2] == 'artiste') {
         include "views/artiste.php";
     }
+
+    // Modification d'un.e artiste
+    if ($url[count($url)-2] == 'editArtiste') {
+        include "views/editArtiste.php";
+    }
+
+    // Confirmation de la modification d'un.e artiste
+    if ($url[count($url)-2]=="editArtisteConfirm") {
+        include "views/editArtisteConfirm.php";
+    }
+
+        
 
     
     include "views/footer.php";
