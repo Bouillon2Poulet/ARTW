@@ -24,7 +24,7 @@ importer la base de données (Sauvegarde BDD > artw.sql) dans phpmyadmin en tant
   (il reste préférable de placer directement le repo "grand dossier", ARTW)
 
 
-## Endpoints
+## Endpoints (16)
 
 ``` 
 artw/index.php
@@ -43,6 +43,8 @@ artw/index.php/artiste/n
 artw/index.php/addArtiste
 artw/index.php/addArtisteConfirm (POST)
 artw/index.php/deleteArtiste/n 
+artw/index.php/editArtiste/n
+artw/index.php/editArtist/n (POST)
 
 ```
 
@@ -55,7 +57,7 @@ pARTage.artw se veut être une plateforme collaborative de partage de projets ar
 L’équipe ARTW (pour Axel, Romain, Tristan et Wendy) tient son nom non seulement de nos initiales, mais aussi des mots “Artwork”, “Art & Web”, “Art World” et “Art Wiki”.
 
 
-## BdD
+## BdD (5 entités, 5 relations)
 
 ![Merise2](https://user-images.githubusercontent.com/103901906/165320954-ca3e9a0e-295e-414b-a777-05059b527ece.png)
 
