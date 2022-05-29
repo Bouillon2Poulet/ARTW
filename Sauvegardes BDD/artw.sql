@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.6.6deb4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : dim. 29 mai 2022 à 11:49
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Client :  sqletud.u-pem.fr
+-- Généré le :  Dim 29 Mai 2022 à 18:00
+-- Version du serveur :  5.7.30-log
+-- Version de PHP :  7.0.33-0+deb9u7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -18,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `artw`
+-- Base de données :  `wendy.gervais_db`
 --
 
 -- --------------------------------------------------------
@@ -27,15 +26,13 @@ SET time_zone = "+00:00";
 -- Structure de la table `domaines`
 --
 
-DROP TABLE IF EXISTS `domaines`;
-CREATE TABLE IF NOT EXISTS `domaines` (
-  `id_domaine` int(11) NOT NULL AUTO_INCREMENT,
-  `nom_domaine` text NOT NULL,
-  PRIMARY KEY (`id_domaine`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+CREATE TABLE `domaines` (
+  `id_domaine` int(11) NOT NULL,
+  `nom_domaine` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `domaines`
+-- Contenu de la table `domaines`
 --
 
 INSERT INTO `domaines` (`id_domaine`, `nom_domaine`) VALUES
@@ -54,16 +51,14 @@ INSERT INTO `domaines` (`id_domaine`, `nom_domaine`) VALUES
 -- Structure de la table `formats`
 --
 
-DROP TABLE IF EXISTS `formats`;
-CREATE TABLE IF NOT EXISTS `formats` (
-  `id_format` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `formats` (
+  `id_format` int(11) NOT NULL,
   `nom_format` text NOT NULL,
-  `id_domaine` int(11) NOT NULL,
-  PRIMARY KEY (`id_format`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+  `id_domaine` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `formats`
+-- Contenu de la table `formats`
 --
 
 INSERT INTO `formats` (`id_format`, `nom_format`, `id_domaine`) VALUES
@@ -112,29 +107,29 @@ INSERT INTO `formats` (`id_format`, `nom_format`, `id_domaine`) VALUES
 -- Structure de la table `oeuvres`
 --
 
-DROP TABLE IF EXISTS `oeuvres`;
-CREATE TABLE IF NOT EXISTS `oeuvres` (
-  `id_oeuvre` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `oeuvres` (
+  `id_oeuvre` int(11) NOT NULL,
   `titre` text NOT NULL,
   `description` text NOT NULL,
   `image` text NOT NULL,
   `url` text NOT NULL,
-  `id_format` int(11) NOT NULL,
-  PRIMARY KEY (`id_oeuvre`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `id_format` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `oeuvres`
+-- Contenu de la table `oeuvres`
 --
 
 INSERT INTO `oeuvres` (`id_oeuvre`, `titre`, `description`, `image`, `url`, `id_format`) VALUES
 (1, 'OE', 'Court-métrage IMAC 1', 'o1.png', 'https://www.youtube.com/watch?v=JlQN5H2ydi8', 1),
-(2, '5M ETG', 'Zik ', 'o2.png', 'https://youtu.be/fSZmFKYWb-E', 7),
+(2, '5M ETG', '', 'o2.png', 'https://youtu.be/fSZmFKYWb-E', 7),
 (6, 'Motion Design Alt-J', '', 'o6.png', 'https://youtu.be/odpzhQvTt54', 3),
 (7, 'Azurites', '', 'o7.png', 'https://23hbd.com/participants/2022/triste_temps/', 19),
 (8, 'Cartographie ISS', '', 'o8.png', '', 15),
 (9, 'Numéro 10', '', 'o9.png', 'https://rom1-le-pain.itch.io/numero-10', 35),
-(10, 'Charlotte Was Alone', '', 'o10.png', '', 35);
+(10, 'Charlotte Was Alone', 'Jeu vidéo inspiré par \"Thomas was Alone\"', 'o10.png', 'https://gitlab.com/rubykiara1712/imac_thomas2', 35),
+(11, 'Réappropriation HDA Tristan', 'effectivement ça marche ça marche', 'o11.jpg', '', 18),
+(12, 'partage.artw', '', 'o.png', 'https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/index.php', 36);
 
 -- --------------------------------------------------------
 
@@ -142,9 +137,8 @@ INSERT INTO `oeuvres` (`id_oeuvre`, `titre`, `description`, `image`, `url`, `id_
 -- Structure de la table `personnes`
 --
 
-DROP TABLE IF EXISTS `personnes`;
-CREATE TABLE IF NOT EXISTS `personnes` (
-  `id_personne` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `personnes` (
+  `id_personne` int(11) NOT NULL,
   `nom` text NOT NULL,
   `prenom` text NOT NULL,
   `photo` text NOT NULL,
@@ -152,12 +146,11 @@ CREATE TABLE IF NOT EXISTS `personnes` (
   `instagram` text NOT NULL,
   `twitter` text NOT NULL,
   `linkedin` text NOT NULL,
-  `bandcamp` text NOT NULL,
-  PRIMARY KEY (`id_personne`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+  `bandcamp` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `personnes`
+-- Contenu de la table `personnes`
 --
 
 INSERT INTO `personnes` (`id_personne`, `nom`, `prenom`, `photo`, `facebook`, `instagram`, `twitter`, `linkedin`, `bandcamp`) VALUES
@@ -177,15 +170,14 @@ INSERT INTO `personnes` (`id_personne`, `nom`, `prenom`, `photo`, `facebook`, `i
 -- Structure de la table `remplir_role`
 --
 
-DROP TABLE IF EXISTS `remplir_role`;
-CREATE TABLE IF NOT EXISTS `remplir_role` (
+CREATE TABLE `remplir_role` (
   `id_personne` int(11) NOT NULL,
   `id_role` int(11) NOT NULL,
   `id_oeuvre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `remplir_role`
+-- Contenu de la table `remplir_role`
 --
 
 INSERT INTO `remplir_role` (`id_personne`, `id_role`, `id_oeuvre`) VALUES
@@ -219,7 +211,17 @@ INSERT INTO `remplir_role` (`id_personne`, `id_role`, `id_oeuvre`) VALUES
 (5, 25, 10),
 (1, 26, 10),
 (3, 26, 10),
-(5, 26, 10);
+(5, 26, 10),
+(3, 16, 11),
+(2, 25, 12),
+(4, 25, 12),
+(1, 25, 12),
+(3, 25, 12),
+(4, 24, 12),
+(4, 26, 12),
+(2, 26, 12),
+(1, 26, 12),
+(3, 26, 12);
 
 -- --------------------------------------------------------
 
@@ -227,16 +229,14 @@ INSERT INTO `remplir_role` (`id_personne`, `id_role`, `id_oeuvre`) VALUES
 -- Structure de la table `roles`
 --
 
-DROP TABLE IF EXISTS `roles`;
-CREATE TABLE IF NOT EXISTS `roles` (
-  `id_role` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `roles` (
+  `id_role` int(11) NOT NULL,
   `role` text NOT NULL,
-  `id_domaine` int(11) NOT NULL,
-  PRIMARY KEY (`id_role`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+  `id_domaine` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `roles`
+-- Contenu de la table `roles`
 --
 
 INSERT INTO `roles` (`id_role`, `role`, `id_domaine`) VALUES
@@ -267,8 +267,70 @@ INSERT INTO `roles` (`id_role`, `role`, `id_domaine`) VALUES
 (25, 'Programmeur.euse', 7),
 (26, 'Designer', 7),
 (27, 'Autre', 8);
-COMMIT;
 
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `domaines`
+--
+ALTER TABLE `domaines`
+  ADD PRIMARY KEY (`id_domaine`);
+
+--
+-- Index pour la table `formats`
+--
+ALTER TABLE `formats`
+  ADD PRIMARY KEY (`id_format`);
+
+--
+-- Index pour la table `oeuvres`
+--
+ALTER TABLE `oeuvres`
+  ADD PRIMARY KEY (`id_oeuvre`);
+
+--
+-- Index pour la table `personnes`
+--
+ALTER TABLE `personnes`
+  ADD PRIMARY KEY (`id_personne`);
+
+--
+-- Index pour la table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id_role`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `domaines`
+--
+ALTER TABLE `domaines`
+  MODIFY `id_domaine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT pour la table `formats`
+--
+ALTER TABLE `formats`
+  MODIFY `id_format` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+--
+-- AUTO_INCREMENT pour la table `oeuvres`
+--
+ALTER TABLE `oeuvres`
+  MODIFY `id_oeuvre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT pour la table `personnes`
+--
+ALTER TABLE `personnes`
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT pour la table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

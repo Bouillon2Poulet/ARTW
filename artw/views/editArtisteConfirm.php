@@ -1,6 +1,5 @@
 <?php
-include "controller.php";
-
+    include "controller.php";
     updateArtiste($MaBase);
 
 ?>

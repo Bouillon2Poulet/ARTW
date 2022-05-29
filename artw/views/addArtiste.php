@@ -3,12 +3,10 @@
 ?>
 
 <!-- Formulaire d'ajout -->
-
 <form action="addArtisteConfirm" method="post" enctype="multipart/form-data">
-<h1> Ajouter un.e artiste</h1>
 
+<h1>Ajouter un.e artiste</h1>
     <h2>Artiste</h2>
-
         <div>
             <label for="prenom" class="label">Prénom *  </label>
             <input type="text" name="prenom" id="prenom" required> <br><br>
@@ -21,14 +19,15 @@
         <div>
             <span class ="label">Photo (.png ou .jpg) </span><br>
             <?php
-                UploadImage(getLastIdPersonne($MaBase)+1,'a'); // Upload Image qui sera nommée (idmax + 1) = id_oeuvre de l'oeuvre nouvellement ajoutée
+                UploadImage(getLastIdPersonne($MaBase)+1,'a'); 
+                // Upload l'image, qui sera nommée a + (last id +1) + extension (ex : a5.jpg)
             ?>
             <input type="file" id="image" name="image">
         </div>
 
         <br>
         
-    <h2>Réseaux </h2>
+    <h2>Réseaux</h2>
 
         <div>
             <label for="facebook" class="label">Facebook </label>
@@ -62,18 +61,19 @@
             <label for="bandcamp" class="label">Bandcamp </label>
             <input type="text" name="bandcamp" id="bandcamp">
         </div>
+        <br>
         
-    <br>
-
+    
     <h2>Valider</h2>
-
-    <div>
-        <input type="submit" value="Ajouter l'artiste" class="ajout">
-    </div>
+        <div>
+            <input type="submit" value="Ajouter l'artiste" class="ajout">
+        </div>
 
 </form>
 
-<br><br><br>
+<br>
+<br>
+<br>
 
 <a href="../index.php/artistes">Annuler et retourner à la liste des artistes</a>
     

@@ -1,37 +1,35 @@
 <?php 
 
-    // Répertoire images, Connexion à la BDD
+    // Répertoire images et connexion à la BDD
 
-    // Mode hébergé
-    // $uploads = "https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/";
-    // $serveur = 'sqletud.u-pem.fr';
-    // $bdd = 'wendy.gervais_db';
-    // $user = "wendy.gervais";
-    // $pass = "1367";
+        // Mode hébergé
+        // $uploads = "https://perso-etudiant.u-pem.fr/~wendy.gervais/artw/uploads/";
+        // $serveur = 'sqletud.u-pem.fr';
+        // $bdd = 'wendy.gervais_db';
+        // $user = "wendy.gervais";
+        // $pass = "1367";
 
-    // Mode local
-    $uploads = "/ARTW/artw/uploads/";
-    $serveur = "localhost";
-    $bdd = "ARTW";
-    $user = "root";
-    $pass = "";
-    // $user = "rom1";
-    // $pass = "852456";
+        // // Mode local
+        $uploads = "/ARTW/artw/uploads/";
+        $serveur = "localhost";
+        $bdd = "ARTW";
+        $user = "root";
+        $pass = "";
+        // // $user = "rom1";
+        // // $pass = "852456";
 
-    global $uploads;
-    $MaBase = new PDO('mysql:host='.$serveur.';dbname='.$bdd, $user, $pass);
-    $MaBase->exec("SET NAMES UTF8");
+        global $uploads;
+        $MaBase = new PDO('mysql:host='.$serveur.';dbname='.$bdd, $user, $pass);
+        $MaBase->exec("SET NAMES UTF8");
 
 
     // Fonction qui exécute une requête req et renvoie le tableau rempli correspondant
     function requeteInTab($req,$MaBase){
         $PDO = $MaBase->query($req);
         $tab = [];
-
         while ($ligne = $PDO->fetch()){
             array_push($tab,$ligne);
         }
-
         $PDO->closeCursor();
         return $tab;
     }
@@ -40,7 +38,8 @@
 
 
 //////////////////////////////////////
-// Requetes //
+
+// Requetes dans fonctions //
 
 
     // récup les oeuvres
@@ -103,13 +102,11 @@
         return requeteInTab($req,$MaBase);
     }
 
-
     function getDomaineFromFormat($MaBase, $format){
         $requetef = 'SELECT id_domaine FROM formats WHERE id_format='.$format;
         return requeteInTab($requetef, $MaBase)[0][0];
     }
 
-    
     function getRolesdePersonneDdansOeuvreN($p, $n, $MaBase) {
         $req = 'SELECT role FROM personnes JOIN remplir_role ON personnes.id_personne=remplir_role.id_personne JOIN roles ON roles.id_role = remplir_role.id_role WHERE remplir_role.id_oeuvre='.$n.' AND remplir_role.id_personne='.$p ;
         return requeteInTab($req,$MaBase);

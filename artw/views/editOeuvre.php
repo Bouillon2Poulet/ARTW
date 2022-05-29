@@ -21,8 +21,6 @@ foreach(getOeuvres($MaBase) as $o) {
         echo '<div><label for="id_format" class="label">Format </label><br><select id="id_format" name="id_format" required>';
         listeFormats($MaBase, $d);
 
-      
-
         echo '</select></div><br>';
 
         echo '<span class="label">Image :</span><br>';
@@ -31,7 +29,7 @@ foreach(getOeuvres($MaBase) as $o) {
         echo '<br><br><div>';
 
         echo '<span class="label">Remplacer l\'image </span><br>' ;
-        UploadImage(getLastIdOeuvre($MaBase)+1, 'o'); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
+        UploadImage(getLastIdOeuvre($MaBase)+1, 'o'); 
         echo '<input type="hidden" name="MAX_FILE_SIZE" value="';
         echo '"><input type="file" id="image" name="image"></div><br>';
 

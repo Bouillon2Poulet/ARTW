@@ -3,10 +3,9 @@
 ?>
 
 <!-- Formulaire d'ajout -->
-
 <form action="addOeuvreConfirm" method="post" enctype="multipart/form-data">
-<h1> Ajouter une oeuvre</h1>
 
+<h1>Ajouter une oeuvre</h1>
     <h2>Oeuvre</h2>
 
         <div>
@@ -26,10 +25,10 @@
         <div>
             <label for="id_format" class="label">Format *</label> <br>
             <select id="id_format" name="id_format" required>
-                <?php
+                <?php 
                     $uri = $_SERVER['REQUEST_URI'];
                     $url = explode("=", $uri);
-                    $d = $url[count($url)-1];
+                    $d = $url[count($url)-1]; // id du domaine récupéré dans l'URL avec GET depuis choixDomaine 
                     listeFormats($MaBase, $d);
                 ?>
             </select>
@@ -40,7 +39,8 @@
         <div>
             <span class ="label">Image d'illustration (.png ou .jpg) </span><br>
             <?php
-                UploadImage(getLastIdOeuvre($MaBase)+1,'o'); // Upload Image qui sera nommée idmax + 1 = id_oeuvre de l'oeuvre nouvellement ajoutée
+                UploadImage(getLastIdOeuvre($MaBase)+1,'o'); 
+                // Upload l'image, qui sera nommée o + (last id +1) + extension (ex : o5.png)
             ?>
             <input type="file" id="image" name="image">
         </div>
@@ -54,10 +54,10 @@
         
         <br>
 
-        <h2>Artiste(s) ayant participé</h2>
+    <h2>Artiste(s) ayant participé</h2>
 
-        <?php
-
+        
+        <?php // div f0 permettant d'ajouter le premier artiste
             echo '<div id="f0">
                 <label for="id_personne0" class="label">Artiste 1 * : </label>
                     <select id="id_personne0" name="id_personne0" required>';
@@ -75,10 +75,12 @@
         ?>
 
         <script> // Script JS qui permet d'ajouter des champs Artistes avec +
+            // Insère un noeud newNode à la suite de existingNode
             function insertAfter(newNode, existingNode) {
                 existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
             }
 
+            // Au clic sur le bouton de fn, le supprime et crée la div fn+1 permettant d'ajouter l'artiste n+1 à la suite de la div fn
             function addligne(n) {
                 m = n+1;
                 const fnp1 = document.createElement("div");
@@ -106,8 +108,7 @@
         <br>
         <br>
 
-        <h2>Valider</h2>
-
+    <h2>Valider</h2>
         <div>
             <input type="submit" value="Ajouter l'oeuvre" class="ajout">
         </div>

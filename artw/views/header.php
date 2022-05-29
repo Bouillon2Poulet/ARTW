@@ -1,4 +1,5 @@
 <?php
+    // Fonction permettant d'accéder au CSS/images depuis tout page avec liens relatifs
     function setCurrentFolder(){
         $method = $_SERVER['REQUEST_METHOD'] ;
         $uri = $_SERVER['REQUEST_URI'];
@@ -40,26 +41,29 @@
 
 <body>
     
+<!-- Titre -->
 <h1>
     <!-- Logo -->
     <?php
         echo '<a href="'.setCurrentFolder().'index.php"><img src="'.setCurrentFolder().'images/logo.png" alt="Accueil" class="logoSite"></a>';
     ?>
     
-    <!-- Titre -->
+    <!-- Texte -->
     PARTAGE.ARTW 
 
 </h1>
 
-    <!-- Barre navigation -->
 
+    <!-- Barre navigation -->
     <?php
         echo '<nav><a href="'.setCurrentFolder().'index.php">🏠 ACCUEIL</a> 
         - <a href="'.setCurrentFolder().'index.php/oeuvres">OEUVRES </a> -
         <a href="'.setCurrentFolder().'index.php/artistes">ARTISTES</a> -
-        <a target="_blank" href="https://github.com/Bouillon2Poulet/ARTW">GIT</a> 
-        </nav>'
+        <a target="_blank" href="https://github.com/Bouillon2Poulet/ARTW">GIT</a>  ' ;
+        echo '</nav>';
     ?>
 
 
 <br>
+
+

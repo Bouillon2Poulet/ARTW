@@ -102,6 +102,10 @@ td {
 
 }
 
+.logoImac {
+    width: 1.5rem;
+}
+
 .photoListe {
     width: 2rem;
     height: 2rem; 
@@ -125,6 +129,11 @@ td {
     border-radius:50%;
 }
 
+.footer {
+    opacity: 0.7;
+    font-size : 0.8rem;
+    
+}
 
 
 
